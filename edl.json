@@ -1,0 +1,37 @@
+{
+  "_comment": "剪輯決策表。segments 待素材盤點後填入 — 目前 Drive 下載被網路政策擋住，尚未看過任何一幀畫面。",
+  "fps": 30,
+  "segments": [],
+  "_segments_範例": [
+    {
+      "src": "807096433.231749.mp4",
+      "in": 2.4,
+      "out": 5.4,
+      "speed": 1.0,
+      "has_audio": true,
+      "note": "第1段 情境 — 下午三點"
+    }
+  ],
+  "subtitles": [
+    { "start": 0.0,  "end": 3.0,  "text": "下午三點 又想點手搖" },
+    { "start": 3.0,  "end": 7.5,  "text": "這杯 看起來是可可" },
+    { "start": 7.5,  "end": 12.5, "text": "實際上是 **24g 蛋白質**" },
+    { "start": 12.5, "end": 18.5, "text": "全素豌豆蛋白・無奶・微苦不甜膩" },
+    { "start": 18.5, "end": 23.0, "text": "熱水一沖 搖一搖就好" },
+    { "start": 23.0, "end": 26.5, "text": "下午茶 換這杯" },
+    { "start": 26.5, "end": 30.0, "text": "一杯 55 元｜12 入組現貨" }
+  ],
+  "disclaimer": {
+    "start": 26.5,
+    "end": 30.0,
+    "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+  },
+  "audio": {
+    "voiceover": null,
+    "voiceover_gain": 1.0,
+    "bgm": null,
+    "bgm_gain": 0.18,
+    "original_gain": 0.35,
+    "duck": true
+  }
+}

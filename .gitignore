@@ -1,0 +1,10 @@
+# 素材與產出不進版控 — 檔案大，且來源是 Google Drive
+raw/
+out/
+frames/
+inventory.json
+edl.test.json
+*.m4a
+*.mp3
+*.wav
+__pycache__/
