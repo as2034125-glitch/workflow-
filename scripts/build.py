@@ -16,7 +16,7 @@ import subprocess
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from _ffmpeg import FFMPEG  # noqa: E402
+from _ffmpeg import FFMPEG, FFPROBE  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RAW = ROOT / "raw"
@@ -64,6 +64,7 @@ ScaledBorderAndShadow: yes
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, OutlineColour, BackColour, Bold, Italic, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Main,{font},{size},&H00FFFFFF&,&H00000000&,&H80000000&,-1,0,1,{max(size // 12, 3)},2,2,60,60,{spec['margin_v']},1
+Style: Note,{font},{round(size * 0.42)},&H00FFFFFF&,&H00303030&,&H00000000&,0,0,1,1,1,2,40,40,{spec['margin_v']},1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -81,26 +82,72 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         )
 
     if note := edl.get("disclaimer"):
-        # 警語疊在主字幕上方一行 — 放到字幕下方會落進 IG 說明文字／FB CTA 的遮蔽區
-        small = round(size * 0.30)
+        # 警語疊在主字幕上方一行 — 放到字幕下方會落進 IG 說明文字／FB CTA 的遮蔽區。
+        # 用獨立樣式：字級比主字幕小但要看得清楚，描邊刻意收細（主字幕的粗描邊
+        # 套在這麼小的字上會糊成一團黑框）。
         lines.append(
             f"Dialogue: 0,{ass_time(note['start'])},{ass_time(note['end'])},"
-            f"Main,,0,0,{spec['margin_v'] + round(size * 1.8)},,"
-            f"{{\\fs{small}\\c&H00E0E0E0&}}{ass_escape(note['text'])}"
+            f"Note,,0,0,{spec['margin_v'] + round(size * 1.9)},,{ass_escape(note['text'])}"
         )
 
     path.write_text(header + "\n".join(lines) + "\n", encoding="utf-8")
+
+
+def clip_duration(path: pathlib.Path) -> float:
+    out = subprocess.run(
+        [FFPROBE, "-v", "error", "-show_entries", "format=duration",
+         "-of", "default=nw=1:nk=1", str(path)],
+        capture_output=True, text=True, check=True,
+    )
+    return float(out.stdout.strip())
+
+
+def overlong(edl: dict) -> list[str]:
+    """列出加上轉場交疊後會超出素材長度的段落。"""
+    tdur, _ = transition_of(edl)
+    if tdur <= 0:
+        return []
+    bad, cache = [], {}
+    segs = edl["segments"]
+    for i, seg in enumerate(segs[:-1]):
+        src = seg["src"]
+        if src not in cache:
+            cache[src] = clip_duration(RAW / src)
+        need = seg["out"] + tdur
+        if need > cache[src]:
+            bad.append(f"第{i + 1}段 {src} 需要到 {need:.2f}s，素材只有 {cache[src]:.2f}s")
+    return bad
+
+
+def seg_len(edl: dict, i: int) -> float:
+    """單段在成品裡佔的長度（不含轉場交疊）。"""
+    seg = edl["segments"][i]
+    return (seg["out"] - seg["in"]) / seg.get("speed", 1.0)
+
+
+def transition_of(edl: dict) -> tuple[float, str]:
+    """回傳 (轉場秒數, 轉場型別)。沒設定或設成 none 就是硬切。"""
+    trans = edl.get("transition") or {}
+    ttype = trans.get("type", "none")
+    if ttype == "none":
+        return 0.0, "fade"
+    return float(trans.get("duration", 0.2)), ttype
 
 
 def build_filters(edl: dict, spec: dict, ass_path: pathlib.Path, font_dir: str) -> tuple[str, str]:
     """組出 filter_complex，回傳 (filtergraph, 音訊輸出標籤)。"""
     w, h, fps = spec["w"], spec["h"], edl.get("fps", 30)
     parts, vlabels, alabels = [], [], []
+    n = len(edl["segments"])
+    tdur, ttype = transition_of(edl)
 
     for i, seg in enumerate(edl["segments"]):
         speed = seg.get("speed", 1.0)
+        # 有轉場時，除了最後一段，每段尾巴都要多取 tdur 秒供交疊使用。
+        # 交疊會吃掉 (n-1)*tdur，多取的長度剛好補回來，成品總長不變。
+        end = seg["out"] + (tdur if i < n - 1 else 0.0)
         parts.append(
-            f"[{i}:v]trim=start={seg['in']}:end={seg['out']},"
+            f"[{i}:v]trim=start={seg['in']}:end={end},"
             f"setpts=(PTS-STARTPTS)/{speed},"
             f"scale={w}:{h}:force_original_aspect_ratio=increase,"
             f"crop={w}:{h},fps={fps},setsar=1[v{i}]"
@@ -118,23 +165,38 @@ def build_filters(edl: dict, spec: dict, ass_path: pathlib.Path, font_dir: str) 
                 tempo /= 0.5
             chain.append(f"atempo={tempo:.4f}")
             parts.append(
-                f"[{i}:a]atrim=start={seg['in']}:end={seg['out']},"
+                f"[{i}:a]atrim=start={seg['in']}:end={end},"
                 f"asetpts=PTS-STARTPTS,{','.join(chain)},"
                 f"aformat=sample_rates=48000:channel_layouts=stereo[a{i}]"
             )
         else:
-            dur = (seg["out"] - seg["in"]) / speed
+            dur = (end - seg["in"]) / speed
             parts.append(
                 f"anullsrc=r=48000:cl=stereo,atrim=duration={dur:.3f}[a{i}]"
             )
         alabels.append(f"[a{i}]")
 
-    n = len(edl["segments"])
-    pairs = "".join(v + a for v, a in zip(vlabels, alabels))
-    parts.append(f"{pairs}concat=n={n}:v=1:a=1[vcat][araw]")
+    if tdur > 0 and n > 1:
+        # xfade 逐段交疊；offset 是「前面已合成的長度扣掉一個交疊」
+        vprev, aprev, cum = vlabels[0], alabels[0], seg_len(edl, 0) + tdur
+        for i in range(1, n):
+            vout = "[vcat]" if i == n - 1 else f"[vx{i}]"
+            aout = "[araw]" if i == n - 1 else f"[ax{i}]"
+            parts.append(
+                f"{vprev}{vlabels[i]}xfade=transition={ttype}:"
+                f"duration={tdur}:offset={cum - tdur:.3f}{vout}"
+            )
+            parts.append(f"{aprev}{alabels[i]}acrossfade=d={tdur}:c1=tri:c2=tri{aout}")
+            cum += seg_len(edl, i) + (tdur if i < n - 1 else 0.0) - tdur
+            vprev, aprev = vout, aout
+    else:
+        pairs = "".join(v + a for v, a in zip(vlabels, alabels))
+        parts.append(f"{pairs}concat=n={n}:v=1:a=1[vcat][araw]")
 
     escaped = str(ass_path).replace("\\", "/").replace(":", r"\:")
-    parts.append(f"[vcat]subtitles='{escaped}':fontsdir='{font_dir}'[vout]")
+    # 尾端補幾格再由 -t 精準截斷 —— 轉場交疊的畫格量化會讓成品少一格
+    parts.append(f"[vcat]subtitles='{escaped}':fontsdir='{font_dir}',"
+                 f"tpad=stop_mode=clone:stop_duration=0.2[vout]")
 
     audio = edl.get("audio", {})
     parts.append(f"[araw]volume={audio.get('original_gain', 0.35)}[aorig]")
@@ -166,10 +228,10 @@ def build_filters(edl: dict, spec: dict, ass_path: pathlib.Path, font_dir: str) 
     if len(mix_inputs) > 1:
         parts.append(
             f"{''.join(mix_inputs)}amix=inputs={len(mix_inputs)}:"
-            f"duration=first:normalize=0,alimiter=limit=0.95[aout]"
+            f"duration=first:normalize=0,alimiter=limit=0.95,apad=pad_dur=0.2[aout]"
         )
     else:
-        parts.append("[aorig]anull[aout]")
+        parts.append("[aorig]apad=pad_dur=0.2[aout]")
 
     return ";".join(parts), "[aout]"
 
@@ -246,6 +308,13 @@ def main() -> int:
     missing = [s["src"] for s in edl["segments"] if not (RAW / s["src"]).exists()]
     if missing:
         print(f"raw/ 缺少這些素材：{', '.join(sorted(set(missing)))}", file=sys.stderr)
+        return 1
+
+    if over := overlong(edl):
+        print("轉場需要每段尾巴多取一點素材，下列剪點會超出素材長度：", file=sys.stderr)
+        for line in over:
+            print(f"  {line}", file=sys.stderr)
+        print("把這些段的 in/out 往前挪，或調小 transition.duration。", file=sys.stderr)
         return 1
 
     font_path, font_family = pick_font(args.font, args.font_family)
