@@ -10,19 +10,44 @@ IG Reels + Facebook 廣告用的 30 秒影片，從 Google Drive 素材到多比
 | 旁白稿與字幕文案 | 完成 — `docs/02-腳本-30秒.md` |
 | 廣告用字檢查 | 完成 — `docs/04-廣告用字檢查.md` |
 | 剪輯 pipeline | 完成，已用合成素材驗證通過 |
-| 素材下載 | **受阻** — 見下方 |
+| 素材清單核對 | 完成 — `manifest.json` 與 Drive 現況完全相符（2026-07-30 查） |
+| 素材下載 | **受阻** — 缺一把 API 金鑰，見下方 |
 | 分鏡與剪點 | 待素材到位 |
 
-### 待解：素材下載被網路政策擋住
+### 待解：素材下載
 
-Drive 資料夾 `醇黑可可_沖泡系列_raw`（ID `1m7nALsFI9SkLRmDwbcZSHTuitoDQaRR8`）內有 22 支影片、10 張照片，清單已存在 `manifest.json`。但執行環境的 proxy 對 `drive.google.com` 回 403：
+Drive 資料夾 `醇黑可可_沖泡系列_raw`（ID `1m7nALsFI9SkLRmDwbcZSHTuitoDQaRR8`）內有 22 支影片、11 張照片，共 109.1 MB。已逐筆核對過，`manifest.json` 的 33 筆檔名、ID、大小與 Drive 現況完全一致，不需重建清單。
+
+資料夾的共用設定也已經是對外開放（`anyone`），所以**不用再改共用權限**。
+
+> ⚠️ 順帶一提：該資料夾目前對 `anyone` 開的是 **編輯者（writer）**，等於拿到連結的人都能改或刪掉原始素材。下載只需要「檢視者」，建議降權成 reader。
+
+卡住的只有執行環境的網路政策 —— proxy 對 `drive.google.com` 回 403：
 
 ```
 connect_rejected: gateway answered 403 to CONNECT
 host: drive.google.com:443
 ```
 
-**解法**：把環境的網路政策改成允許下列網域，並將該 Drive 資料夾設為「知道連結的人可檢視」，然後開新 session。設定說明見 https://code.claude.com/docs/en/claude-code-on-the-web
+有兩條路可以解，**建議走 A**：
+
+#### A. 給一把 Google API 金鑰（不用改環境，最快）
+
+實測 `www.googleapis.com` 在目前環境**已經放行**，所以走 Drive API 就繞開了被擋的網域。素材是公開的，只要一把 API key，不需要 OAuth：
+
+1. 到 Google Cloud Console 建一個專案 → 啟用 **Google Drive API** → 建立憑證選 **API 金鑰**
+2. 把金鑰交給 session（或設進環境變數），然後：
+
+```bash
+export GOOGLE_API_KEY=AIza...
+python3 scripts/fetch.py
+```
+
+`scripts/fetch.py` 已經支援這條路，有金鑰就自動走 API，沒有才回頭走公開連結。
+
+#### B. 改環境的網路白名單
+
+把下列網域加進環境的網路政策，然後開新 session。設定說明見 https://code.claude.com/docs/en/claude-code-on-the-web
 
 ```
 drive.google.com
@@ -30,13 +55,14 @@ drive.usercontent.google.com
 *.googleusercontent.com
 ```
 
-第二個網域容易漏掉 —— Drive 的實際檔案內容是從 `drive.usercontent.google.com` 送出的，只開 `drive.google.com` 會卡在重導向那一步。
+第二個網域容易漏掉 —— Drive 的實際檔案內容是從 `drive.usercontent.google.com` 送出的，只開 `drive.google.com` 會卡在重導向那一步。（三個目前都是擋的，已實測。）
 
 ### 新 session 的第一步
 
 ```bash
-git fetch origin && git checkout claude/cacao-video-editing-4sjzs5
+git fetch origin && git checkout claude/cacao-video-editing-no5aac
 apt-get update -qq && apt-get install -y -qq ffmpeg   # 容器預設沒有 ffprobe
+export GOOGLE_API_KEY=AIza...                         # 走 A 的話
 python3 scripts/fetch.py && python3 scripts/probe.py
 ```
 
@@ -56,7 +82,7 @@ python3 scripts/build.py           # 正式輸出 9:16 與 4:5
 
 ## 已驗證
 
-用 7 顆合成素材跑完整條 pipeline，產出：
+用 7 顆合成素材（混 1920×1080、1280×720、1080×1080、1080×1920）跑完整條 pipeline，2026-07-30 在乾淨容器上重跑確認仍可通過，產出：
 
 - `cacao_30s_9x16.mp4` — 30.00 秒，1080×1920，yuv420p，AAC 立體聲
 - `cacao_30s_4x5.mp4` — 30.00 秒，1080×1350，同上
