@@ -22,7 +22,12 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 RAW = ROOT / "raw"
 OUT = ROOT / "out"
 
-FALLBACK_FONT = "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc"
+# 字幕字型候選，由上往下找第一個裝得到的。(檔案路徑, ASS 用的字型家族名)
+# 家族名不能從檔名推 —— .ttc 一個檔含多個家族，libass 是靠家族名比對的。
+FONT_CANDIDATES = [
+    ("/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc", "Noto Sans CJK TC"),  # 思源黑體
+    ("/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc", "WenQuanYi Zen Hei"),
+]
 ACCENT = "&H004AB2E8&"  # 可可金 #E8B24A（ASS 為 BGR 序）— 換成品牌主色
 
 # 各比例的輸出尺寸與字幕安全邊距（自畫面底部起算）
@@ -34,7 +39,10 @@ ASPECTS = {
 
 
 def ass_escape(text: str) -> str:
-    return text.replace("\\", "\\\\").replace("{", "\\{").replace("}", "\\}")
+    escaped = text.replace("\\", "\\\\").replace("{", "\\{").replace("}", "\\}")
+    # edl.json 裡打真正的換行，轉成 ASS 的硬斷行。樣式是 WrapStyle 2（不自動斷行），
+    # 長句不手動斷會直接衝出畫面。
+    return escaped.replace("\n", "\\N")
 
 
 def ass_time(seconds: float) -> str:
@@ -166,12 +174,22 @@ def build_filters(edl: dict, spec: dict, ass_path: pathlib.Path, font_dir: str) 
     return ";".join(parts), "[aout]"
 
 
-def render(edl: dict, aspect: str, draft: bool, font: str) -> pathlib.Path:
+def pick_font(path: str | None, family: str | None) -> tuple[str, str]:
+    """回傳 (字型檔路徑, ASS 家族名)。沒指定就用候選清單裡第一個裝得到的。"""
+    if path:
+        return path, family or pathlib.Path(path).stem
+    for cand_path, cand_family in FONT_CANDIDATES:
+        if pathlib.Path(cand_path).exists():
+            return cand_path, family or cand_family
+    raise SystemExit("找不到任何中文字型，請用 --font 指定字型檔")
+
+
+def render(edl: dict, aspect: str, draft: bool, font: str, family: str) -> pathlib.Path:
     spec = ASPECTS[aspect]
     OUT.mkdir(exist_ok=True)
     slug = aspect.replace(":", "x")
     ass_path = OUT / f"subs_{slug}.ass"
-    build_ass(edl, spec, pathlib.Path(font).stem, ass_path)
+    build_ass(edl, spec, family, ass_path)
 
     cmd = [FFMPEG, "-nostdin", "-y"]
     for seg in edl["segments"]:
@@ -206,7 +224,9 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--aspect", choices=list(ASPECTS), action="append")
     ap.add_argument("--draft", action="store_true")
-    ap.add_argument("--font", default=FALLBACK_FONT, help="字幕字型檔路徑")
+    ap.add_argument("--font", help="字幕字型檔路徑；預設自動找思源黑體")
+    ap.add_argument("--font-family", help="ASS 用的字型家族名，例如 'Noto Sans CJK TC'。"
+                                         "指定 .ttc 這種多家族字型檔時需要")
     ap.add_argument("--edl", default=str(ROOT / "edl.json"))
     args = ap.parse_args()
 
@@ -224,11 +244,13 @@ def main() -> int:
         print(f"raw/ 缺少這些素材：{', '.join(sorted(set(missing)))}", file=sys.stderr)
         return 1
 
-    if args.font == FALLBACK_FONT:
-        print("提醒：正在用系統備援字型 WQY Zen Hei，建議改用品牌字型（--font）")
+    font_path, font_family = pick_font(args.font, args.font_family)
+    print(f"字幕字型：{font_family}（{font_path}）")
+    if "WenQuanYi" in font_family:
+        print("提醒：WQY Zen Hei 是最後備援，字重不足；裝 fonts-noto-cjk 或用 --font 指定品牌字型")
 
     for aspect in args.aspect or ["9:16", "4:5"]:
-        render(edl, aspect, args.draft, args.font)
+        render(edl, aspect, args.draft, font_path, font_family)
     print(f"\n完成，檔案在 {OUT}")
     return 0
 

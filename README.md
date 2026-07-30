@@ -72,7 +72,7 @@ drive.usercontent.google.com
 
 ```bash
 git fetch origin && git checkout claude/cacao-video-editing-no5aac
-apt-get update -qq && apt-get install -y -qq ffmpeg   # 容器預設沒有 ffprobe
+apt-get update -qq && apt-get install -y -qq ffmpeg fonts-noto-cjk   # ffprobe 與思源黑體
 export GOOGLE_API_KEY=AIza...                         # 素材不進版控，要重抓
 python3 scripts/fetch.py
 python3 scripts/build.py --draft                      # edl.json 剪點已填好
@@ -105,7 +105,7 @@ python3 scripts/build.py           # 正式輸出 9:16 與 4:5
 
 1. **旁白錄音**（單軌乾聲，稿在 `docs/02-腳本-30秒.md`），放專案根目錄後填進 `edl.json` 的 `audio.voiceover`
 2. **有授權的配樂**，同樣填 `audio.bgm`
-3. **品牌字型檔** — 目前用系統備援的 WQY Zen Hei，字重不足，做廣告會拉低質感。用 `--font` 指定
+3. **品牌字型檔**（可選）— 目前用思源黑體（Noto Sans CJK TC），開源、字重足夠，做廣告堪用。若有品牌指定字型，用 `--font` 加 `--font-family` 指定
 4. **品牌主色** — `scripts/build.py` 的 `ACCENT` 目前是暫定的可可金 `#E8B24A`
 5. **原始畫質素材**（如果拿得到）— 現有檔名為 LINE 導出格式，已被二次壓縮，22 支平均不到 5 MB
 
