@@ -109,7 +109,7 @@
     {
       "start": 25.5,
       "end": 30.0,
-      "text": "一杯 55 元｜12 入組現貨"
+      "text": "嘴饞隨時來一杯！\n現貨免等待"
     }
   ],
   "disclaimer": {
@@ -129,5 +129,12 @@
     "type": "fade",
     "duration": 0.2,
     "_note": "簡單交叉溶接。type 可用 fade／fadeblack／wipeleft 等 xfade 支援的型別，設 none 就是硬切。"
+  },
+  "subtitle_style": {
+    "outline": 4,
+    "shadow": 1,
+    "blur": 5,
+    "shadow_colour": "&H90000000&",
+    "_note": "blur 把描邊糊成柔和光暈而不是硬邊黑框。要完全不要描邊就把 outline 設 0，但淺色背景會讀不清楚。"
   }
 }

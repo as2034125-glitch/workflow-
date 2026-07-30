@@ -54,6 +54,15 @@ def ass_time(seconds: float) -> str:
 def build_ass(edl: dict, spec: dict, font: str, path: pathlib.Path) -> None:
     """把 edl 的字幕段落寫成 ASS。**粗體標記** 會放大並套上重音色。"""
     size = round(spec["h"] * 0.038)
+    # 描邊與陰影可在 edl.json 的 subtitle_style 調整。
+    # outline 設 0 就沒有黑色描邊，改用陰影跟背景分離，字面比較乾淨。
+    style = edl.get("subtitle_style") or {}
+    outline = style.get("outline", 0)
+    shadow = style.get("shadow", 3)
+    shadow_colour = style.get("shadow_colour", "&H90000000&")
+    # blur 會把描邊糊成柔和光暈，而不是一圈硬邊黑框。淺色背景要靠它拉開對比。
+    blur = style.get("blur", 0)
+    prefix = f"{{\\blur{blur}}}" if blur else ""
     header = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {spec['w']}
@@ -63,8 +72,8 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, OutlineColour, BackColour, Bold, Italic, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Main,{font},{size},&H00FFFFFF&,&H00000000&,&H80000000&,-1,0,1,{max(size // 12, 3)},2,2,60,60,{spec['margin_v']},1
-Style: Note,{font},{round(size * 0.42)},&H00FFFFFF&,&H00303030&,&H00000000&,0,0,1,1,1,2,40,40,{spec['margin_v']},1
+Style: Main,{font},{size},&H00FFFFFF&,&H00000000&,{shadow_colour},-1,0,1,{outline},{shadow},2,60,60,{spec['margin_v']},1
+Style: Note,{font},{round(size * 0.42)},&H00FFFFFF&,&H00000000&,{shadow_colour},0,0,1,{min(outline, 2)},{max(shadow - 1, 1)},2,40,40,{spec['margin_v']},1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -78,7 +87,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
             text = text.replace("**", f"{{\\fs{size}\\c&H00FFFFFF&}}", 1)
         lines.append(
             f"Dialogue: 0,{ass_time(cue['start'])},{ass_time(cue['end'])},"
-            f"Main,,0,0,0,,{text}"
+            f"Main,,0,0,0,,{prefix}{text}"
         )
 
     if note := edl.get("disclaimer"):
@@ -87,7 +96,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         # 套在這麼小的字上會糊成一團黑框）。
         lines.append(
             f"Dialogue: 0,{ass_time(note['start'])},{ass_time(note['end'])},"
-            f"Note,,0,0,{spec['margin_v'] + round(size * 1.9)},,{ass_escape(note['text'])}"
+            f"Note,,0,0,{spec['margin_v'] + round(size * 1.9)},,{prefix}{ass_escape(note['text'])}"
         )
 
     path.write_text(header + "\n".join(lines) + "\n", encoding="utf-8")
