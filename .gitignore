@@ -1,3 +1,6 @@
+# 金鑰不進版控
+.env
+
 # 素材與產出不進版控 — 檔案大，且來源是 Google Drive
 raw/
 out/
