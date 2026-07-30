@@ -22,7 +22,25 @@ connect_rejected: gateway answered 403 to CONNECT
 host: drive.google.com:443
 ```
 
-**解法**：把環境的網路政策改成允許 `drive.google.com` 與 `*.googleusercontent.com`，並將該 Drive 資料夾設為「知道連結的人可檢視」，然後開新 session。設定說明見 https://code.claude.com/docs/en/claude-code-on-the-web
+**解法**：把環境的網路政策改成允許下列網域，並將該 Drive 資料夾設為「知道連結的人可檢視」，然後開新 session。設定說明見 https://code.claude.com/docs/en/claude-code-on-the-web
+
+```
+drive.google.com
+drive.usercontent.google.com
+*.googleusercontent.com
+```
+
+第二個網域容易漏掉 —— Drive 的實際檔案內容是從 `drive.usercontent.google.com` 送出的，只開 `drive.google.com` 會卡在重導向那一步。
+
+### 新 session 的第一步
+
+```bash
+git fetch origin && git checkout claude/cacao-video-editing-4sjzs5
+apt-get update -qq && apt-get install -y -qq ffmpeg   # 容器預設沒有 ffprobe
+python3 scripts/fetch.py && python3 scripts/probe.py
+```
+
+跑完後 `frames/` 會有每支片的 6 張縮圖，逐張看過決定哪顆鏡頭進片，填進 `edl.json` 的 `segments`，再跑 `scripts/build.py --draft`。腳本與規格都已定案，見 `docs/`。
 
 ## 流程
 
