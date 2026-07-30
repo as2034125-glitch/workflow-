@@ -11,10 +11,21 @@ IG Reels + Facebook 廣告用的 30 秒影片，從 Google Drive 素材到多比
 | 廣告用字檢查 | 完成 — `docs/04-廣告用字檢查.md` |
 | 剪輯 pipeline | 完成，已用合成素材驗證通過 |
 | 素材清單核對 | 完成 — `manifest.json` 與 Drive 現況完全相符（2026-07-30 查） |
-| 素材下載 | **受阻** — 缺一把 API 金鑰，見下方 |
-| 分鏡與剪點 | 待素材到位 |
+| 素材下載 | 完成 — 33 個檔案，走 Drive API |
+| 素材盤點 | 完成 — `docs/03-素材清單.md`，22 支全為 720×1280 直式 |
+| 分鏡與剪點 | 初剪完成 — `edl.json` 8 段接滿 30.00 秒 |
+| 成品 | 待旁白、配樂、品牌字型到位後正式輸出 |
 
-### 待解：素材下載
+### 素材本身的四個限制（會影響成效，先講清楚）
+
+1. **沒有情境鏡頭。** 22 支全是辦公桌面的產品демо，沒有任何「下午三點想喝手搖」的生活情境。腳本第 1 句與第 6 句（`下午茶 換這杯`）目前只能用成品杯頂著，說服力打折。
+2. **沒有沖水畫面。** 字幕寫「熱水一沖」，但素材裡沒有任何倒水鏡頭，只有倒粉。目前該段配的是倒粉畫面，畫面與文案對不上。
+3. **背景雜。** 白桌上有筆電、螢幕（風景桌布）、白色電線，多數鏡頭都入鏡，廣告質感偏弱。
+4. **解析度只有 720×1280。** 輸出 1080×1920 要放大 1.5 倍，銳利度不足；檔名是 LINE 導出格式，已經過二次壓縮。
+
+補拍的話，優先序是 情境鏡頭 > 沖水特寫 > 乾淨背景重拍產品。
+
+### Drive 下載方式
 
 Drive 資料夾 `醇黑可可_沖泡系列_raw`（ID `1m7nALsFI9SkLRmDwbcZSHTuitoDQaRR8`）內有 22 支影片、11 張照片，共 109.1 MB。已逐筆核對過，`manifest.json` 的 33 筆檔名、ID、大小與 Drive 現況完全一致，不需重建清單。
 
@@ -29,7 +40,7 @@ connect_rejected: gateway answered 403 to CONNECT
 host: drive.google.com:443
 ```
 
-有兩條路可以解，**建議走 A**：
+當初卡在網路政策，解法如下（**建議走 A**，已實測可用）：
 
 #### A. 給一把 Google API 金鑰（不用改環境，最快）
 
@@ -62,11 +73,12 @@ drive.usercontent.google.com
 ```bash
 git fetch origin && git checkout claude/cacao-video-editing-no5aac
 apt-get update -qq && apt-get install -y -qq ffmpeg   # 容器預設沒有 ffprobe
-export GOOGLE_API_KEY=AIza...                         # 走 A 的話
-python3 scripts/fetch.py && python3 scripts/probe.py
+export GOOGLE_API_KEY=AIza...                         # 素材不進版控，要重抓
+python3 scripts/fetch.py
+python3 scripts/build.py --draft                      # edl.json 剪點已填好
 ```
 
-跑完後 `frames/` 會有每支片的 6 張縮圖，逐張看過決定哪顆鏡頭進片，填進 `edl.json` 的 `segments`，再跑 `scripts/build.py --draft`。腳本與規格都已定案，見 `docs/`。
+`raw/`、`out/`、`frames/` 都不進版控，新容器要重跑 `fetch.py`。剪點已經在 `edl.json` 裡，直接 build 就有初剪。要調整剪點只動 `edl.json`。
 
 ## 流程
 
