@@ -1,41 +1,173 @@
 {
-  "folder": "醇黑可可_沖泡系列_raw",
-  "folder_id": "1m7nALsFI9SkLRmDwbcZSHTuitoDQaRR8",
+  "folder": "New 醇黑可可",
+  "folder_id": "1r0aipi_5lMOLRKz9L-3xrZVR9cntj3fk",
   "owner": "lily@agugutrain.com",
+  "_note": "iPhone 原始檔，未經 LINE 壓縮。取代先前的 720p 版本（留底於 manifest-line720.json）。",
   "files": [
-    { "id": "10ptduqx7u5VRZ8ITA-4pbLhSUwugZx1k", "title": "807096433.231749.mp4", "size": "18859387" },
-    { "id": "1LaARTWuSRb1uzVs0tKcDnly02Ap4pR-y", "title": "807096433.351081.mp4", "size": "17373533" },
-    { "id": "1xd5cPqsC2Ona4znrM8LEUGF5arYWzgG-", "title": "807096432.930252.mp4", "size": "9573138" },
-    { "id": "1IaFD0xAySt4qea70tDEACc_xe7iQKpzc", "title": "807096433.091028.mp4", "size": "7444983" },
-    { "id": "1bcV7kyGS_7qEp_6rkVkyLQBCRfqDPNtl", "title": "807096433.271568.mp4", "size": "6216887" },
-    { "id": "16L24QG76E1Q-CTa-4Eyusxgo4Wo4B_c4", "title": "807096433.161082.mp4", "size": "5928311" },
-    { "id": "1SsqFDf9ORTWweg64lKV0vNy2ZaO5dSDp", "title": "807096433.041408.mp4", "size": "5397741" },
-    { "id": "1_1IxGqWCX2vWd3dGQB3T2pIshG0hy8dV", "title": "807096433.005019.mp4", "size": "4960586" },
-    { "id": "1WmdCPj-fQ-5wCmtB-22DsNToI8ZK4TS_", "title": "807096432.366798.mp4", "size": "4178087" },
-    { "id": "1zzYkm1465MpiJK7Nm5oHd_tZS8_wgJPy", "title": "807096433.309979.mp4", "size": "4148599" },
-    { "id": "1hyJ8Qt_3lpulnamA6_lmxX6-IKsIH0n8", "title": "807096432.968024.mp4", "size": "3867000" },
-    { "id": "1SpdQ3dssU-ry3zVn2m1nPqjEKEmYvMVu", "title": "807096432.268610.mp4", "size": "2859871" },
-    { "id": "1gLFyYJOlrIOf1Dv-uCntkSlGrRCg-f-X", "title": "807096432.203279.mp4", "size": "2787891" },
-    { "id": "11ZV0GTjX8g7UkhrUIBG8I7CNE-uTP6Eh", "title": "807096432.320059.mp4", "size": "2577954" },
-    { "id": "1qgRWM4hs2BB-Rq1G6Ari0RAHy8ZJwR92", "title": "807096432.846714.mp4", "size": "1882801" },
-    { "id": "1DTADBs1ukT8TSd6paSuQn745juBZJ5cg", "title": "807096432.794425.mp4", "size": "1836648" },
-    { "id": "1HuGIqAQBvLAgh4qjlxX0t20xnMCaBRVI", "title": "807096432.442365.mp4", "size": "1807701" },
-    { "id": "1lHBI294vl4ryDib4kS66xcISBUbtGRjM", "title": "807096432.485180.mp4", "size": "1625174" },
-    { "id": "1Lezvu1OloH5-DlyLFQBtBAb0ruBTDHkb", "title": "807096433.388617.mp4", "size": "1212221" },
-    { "id": "1kNGd3mM9YH2B2AONULwNCRO8N9gD1z4g", "title": "807096433.422154.mp4", "size": "1158482" },
-    { "id": "1j5vKi0hPb9zvCu9EAPKz-ccvlbLcQ7Bk", "title": "807096432.055515.mp4", "size": "697934" },
-    { "id": "1PL_7ep1oJrOrcCnnJexBoSiSXGFK95x0", "title": "807096433.124820.mp4", "size": "457628" },
-
-    { "id": "1u6jAaglNT2jrUCXawOomZDaNyg7yO864", "title": "S__19316781.jpg", "size": "248086" },
-    { "id": "1IGeTLy62LzWaoTyeYNtqVcK2iBqD3m2p", "title": "S__19316764_0.jpg", "size": "236993" },
-    { "id": "1OjFtLXYkwijtZpqW39YiHuqozvWSE3yG", "title": "S__19316765_0.jpg", "size": "236572" },
-    { "id": "1vBPgDvVieJI7DuLWRpsTop12g-ZOoQAf", "title": "S__19316777_0.jpg", "size": "223257" },
-    { "id": "1mfP0yyrv_eFaW2nhDgIy1nsHqVFSsxxl", "title": "S__19316778_0.jpg", "size": "221714" },
-    { "id": "1VYtsllG88XJozlAMcnx76OjAIe0H81tb", "title": "S__19316776_0.jpg", "size": "212320" },
-    { "id": "1yoebxHG8Nr21k1ptzu2CYesQHLw_lkKv", "title": "S__19316772_0.jpg", "size": "199394" },
-    { "id": "1soNBJZb2uBE9BsVkqs_WcHVBRyFvhMGb", "title": "S__19316771_0.jpg", "size": "193849" },
-    { "id": "1RWliMclph7Gy7l_BZP8FEU6Cn9p9aCIr", "title": "S__19316786.jpg", "size": "168866" },
-    { "id": "1RSo35u1GRuCNDJLKHXh1BK4GGBpFL8-O", "title": "S__19316791_0.jpg", "size": "166410" },
-    { "id": "1PHE9EpRoQT0xqeivF15ZYAa0YcPQhYHR", "title": "S__19316792_0.jpg", "size": "156283" }
+    {
+      "id": "14mOkhq0ldbheROaa3_uXXhPOAMR-Qgpl",
+      "title": "IMG_9330.MOV",
+      "size": "74609201"
+    },
+    {
+      "id": "1SanoHN_NnXygpKaZ1IWO-3IiugYh8ku1",
+      "title": "IMG_9327.MOV",
+      "size": "67748536"
+    },
+    {
+      "id": "1BCPubYoEd6o1SY3Z4AuWfg_aCYgX2czV",
+      "title": "IMG_9317.MOV",
+      "size": "41405080"
+    },
+    {
+      "id": "1gzLa2_ctdQpVl7CKE_kr5N_akf2c2OO0",
+      "title": "IMG_9322.MOV",
+      "size": "32275663"
+    },
+    {
+      "id": "1bW6C1mFYVmpy4btclSeWFv1c65FiGz0g",
+      "title": "IMG_9328.MOV",
+      "size": "25600111"
+    },
+    {
+      "id": "1BnBcIDqP4DD6Z5esqjFkCUqBezziGq3H",
+      "title": "IMG_9320.MOV",
+      "size": "23401759"
+    },
+    {
+      "id": "1L44L5irUG3WVGAf119EkJLd0ly555xKM",
+      "title": "IMG_9319.MOV",
+      "size": "21502621"
+    },
+    {
+      "id": "1LwCej_In56EOy5WX6NsmaRdeuL0QIUJH",
+      "title": "IMG_9324.MOV",
+      "size": "20181492"
+    },
+    {
+      "id": "1vBX5vORJdLgPjrTN6XuJaJ1g_2EP-A-R",
+      "title": "IMG_9306.MOV",
+      "size": "18022715"
+    },
+    {
+      "id": "1nfrsddZWd4K2sgXPaHTvssF7MHCU5xL5",
+      "title": "IMG_9329.MOV",
+      "size": "17838104"
+    },
+    {
+      "id": "1txUKB71m5JOTTysOZcnkXmHryJFY5EAS",
+      "title": "IMG_9318.MOV",
+      "size": "16901334"
+    },
+    {
+      "id": "1j0bwe4v6p9ZzTsgVTgKfGlcPNv2hdbtr",
+      "title": "IMG_9304.MOV",
+      "size": "12127251"
+    },
+    {
+      "id": "1XZ_-5lN7r_MhsLOYlsjPV4sJ9ozcUIE9",
+      "title": "IMG_9303.MOV",
+      "size": "12056864"
+    },
+    {
+      "id": "1Btp6IsjS-R36RhodCYGO1I9WWNzhBRKv",
+      "title": "IMG_9314.MOV",
+      "size": "7957297"
+    },
+    {
+      "id": "1_Q2V9QQS2h44y6TNQ1R2_GftmwUXeLnJ",
+      "title": "IMG_9305.MOV",
+      "size": "7793421"
+    },
+    {
+      "id": "1_JG24Sh6sjuKV03DcBECzd8RKRei41ye",
+      "title": "IMG_9309.MOV",
+      "size": "7615952"
+    },
+    {
+      "id": "12mObt0N5EYfZ3y0wKX0mDn83RKlFoycP",
+      "title": "IMG_9315.MOV",
+      "size": "7391590"
+    },
+    {
+      "id": "1MLxY0c5_Mb3l5L1yb1kwECoHlmelcavS",
+      "title": "IMG_9310.MOV",
+      "size": "7148173"
+    },
+    {
+      "id": "1Y1H6pUrBtEmxbCfsZfBoDozilpGQdkEr",
+      "title": "IMG_9332.MOV",
+      "size": "4809867"
+    },
+    {
+      "id": "1G1IoyebesdS3rCZi_UyhRxkStpVOHlza",
+      "title": "IMG_9331.MOV",
+      "size": "3983201"
+    },
+    {
+      "id": "1_0-hp0KvT2Ebl22r1naxajGv1QV-e9gj",
+      "title": "IMG_9335.MOV",
+      "size": "2934832"
+    },
+    {
+      "id": "1qE3OdYJlx3pGZ3IvKeXCq_jbDaFZrmyb",
+      "title": "IMG_9323.MOV",
+      "size": "1890011"
+    },
+    {
+      "id": "1uKo-7Bx9lCkyTCPNruht0OThM5kpZgIw",
+      "title": "IMG_9316.JPG",
+      "size": "1410206"
+    },
+    {
+      "id": "1oMfpu-lT9oezRbDHNZOU6-rFvkQ7G9xA",
+      "title": "IMG_9321.JPG",
+      "size": "1028574"
+    },
+    {
+      "id": "1yYwLgB2lugAkVFiXwLHfDgvOO8m4TTyF",
+      "title": "IMG_9325.JPG",
+      "size": "962929"
+    },
+    {
+      "id": "17-umbatoX76hS8wTD0FenPbgsnGrSRQ3",
+      "title": "IMG_9326.JPG",
+      "size": "930588"
+    },
+    {
+      "id": "1qUXVZEP7wzQmIU5hs9pXt2oecwDKZ8-U",
+      "title": "IMG_9334.JPG",
+      "size": "824270"
+    },
+    {
+      "id": "1602bfTVwikU7lwEQAuMtFInnLKabtf0v",
+      "title": "IMG_9333.JPG",
+      "size": "822258"
+    },
+    {
+      "id": "1jxv3AdCqmhLSxnjiCWVPjSEokP75wUNM",
+      "title": "IMG_9308.JPG",
+      "size": "744621"
+    },
+    {
+      "id": "1eDc3XgCVqhLPgKDa5KeSMafBifrMAnEL",
+      "title": "IMG_9307.JPG",
+      "size": "727654"
+    },
+    {
+      "id": "1u1gszxE6-2cX_nMJZegryn1oO27vc6Qg",
+      "title": "IMG_9312.HEIC",
+      "size": "2945119"
+    },
+    {
+      "id": "1ooA6E4wh94o582xPA3My_9OK2rQgSrdB",
+      "title": "IMG_9311.HEIC",
+      "size": "2681564"
+    },
+    {
+      "id": "1r8hnHs_r3p_79x46Cr8YyvFiAPC0ApMj",
+      "title": "IMG_9313.HEIC",
+      "size": "2849833"
+    }
   ]
 }

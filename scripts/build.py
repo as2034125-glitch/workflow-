@@ -202,9 +202,13 @@ def render(edl: dict, aspect: str, draft: bool, font: str, family: str) -> pathl
 
     graph, alabel = build_filters(edl, spec, ass_path, str(pathlib.Path(font).parent))
     dest = OUT / f"cacao_30s_{slug}{'_draft' if draft else ''}.mp4"
+    # 素材混了 29.97 與 30 fps，串接時會多進位一兩格。用 EDL 算出的總長硬性截斷，
+    # 確保成品長度與剪輯決策完全一致。
+    total = sum((s["out"] - s["in"]) / s.get("speed", 1.0) for s in edl["segments"])
     cmd += [
         "-filter_complex", graph,
         "-map", "[vout]", "-map", alabel,
+        "-t", f"{total:.3f}",
         "-c:v", "libx264", "-profile:v", "high", "-pix_fmt", "yuv420p",
         "-preset", "veryfast" if draft else "slow",
         "-crf", "30" if draft else "20",

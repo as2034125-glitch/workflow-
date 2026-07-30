@@ -127,16 +127,19 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", help="只抓這個副檔名，例如 mp4")
     ap.add_argument("--api-key", help="Google API 金鑰；預設讀 GOOGLE_API_KEY")
+    ap.add_argument("--manifest", default=str(MANIFEST), help="清單檔路徑；預設 manifest.json")
     args = ap.parse_args()
+
+    manifest = pathlib.Path(args.manifest)
 
     api_key = args.api_key or os.environ.get("GOOGLE_API_KEY") or os.environ.get("GDRIVE_API_KEY")
 
-    if not MANIFEST.exists():
-        print(f"找不到 {MANIFEST}", file=sys.stderr)
+    if not manifest.exists():
+        print(f"找不到 {manifest}", file=sys.stderr)
         return 1
 
     RAW.mkdir(exist_ok=True)
-    entries = json.loads(MANIFEST.read_text(encoding="utf-8"))["files"]
+    entries = json.loads(manifest.read_text(encoding="utf-8"))["files"]
     if args.only:
         entries = [e for e in entries if e["title"].endswith(args.only)]
 

@@ -39,13 +39,25 @@ def probe(path: pathlib.Path) -> dict:
         num, den = video["r_frame_rate"].split("/")
         fps = round(int(num) / int(den), 2) if int(den) else 0.0
 
+    # 手機直拍的檔案常是橫向存檔＋旋轉中繼資料，ffmpeg 解碼時會自動轉正。
+    # 這裡要報「轉正後」的尺寸，否則直式素材會被誤判成橫式。
+    width = video["width"] if video else 0
+    height = video["height"] if video else 0
+    rotation = 0
+    for side in (video or {}).get("side_data_list", []):
+        if "rotation" in side:
+            rotation = int(side["rotation"])
+    if rotation % 180 != 0:
+        width, height = height, width
+
     return {
         "file": path.name,
         "duration": round(float(data["format"]["duration"]), 2),
         "size_mb": round(int(data["format"]["size"]) / 1e6, 2),
         "bitrate_kbps": round(int(data["format"].get("bit_rate", 0)) / 1000),
-        "width": video["width"] if video else 0,
-        "height": video["height"] if video else 0,
+        "width": width,
+        "height": height,
+        "rotation": rotation,
         "fps": fps,
         "has_audio": audio is not None,
         "audio_codec": audio["codec_name"] if audio else None,
