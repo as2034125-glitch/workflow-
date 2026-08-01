@@ -1,0 +1,11 @@
+{
+  "name": "agugu-workflow",
+  "private": true,
+  "description": "AGUGU 內容製作流程工具",
+  "scripts": {
+    "proposal": "node scripts/proposal.js"
+  },
+  "dependencies": {
+    "docx": "^9.5.1"
+  }
+}

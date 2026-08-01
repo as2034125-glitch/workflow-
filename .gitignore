@@ -8,3 +8,6 @@ edl.test.json
 *.mp3
 *.wav
 __pycache__/
+
+# Node（scripts/proposal.js 需要 docx 套件）
+node_modules/

@@ -98,13 +98,19 @@ python3 scripts/build.py           # 正式輸出 9:16 與 4:5
 | `docs/100-ways/02-拍攝與後製執行.md` | 6 個拍攝日的批次流程、15 秒影片模板、檔名規範 |
 | `docs/100-ways/03-廣告用字與警語.md` | 食安法用字檢查、Q10 與 GABA 法定警語、UGC 審核 |
 | `docs/100-ways/recipes.json` | 由清單產生的結構化資料，**不要手動編輯** |
+| `docs/100-ways/AGUGU_100種喝法_內部提案書.docx` | 給決策層看的提案書，同樣由腳本產生 |
 
 配方的唯一來源是 `01-100種喝法清單.md`。改完配方跑：
 
 ```bash
 python3 scripts/recipes.py           # 重新產生 recipes.json
 python3 scripts/recipes.py --check   # 只驗證編號連續、口味有效、系列範圍正確
+
+npm install                          # 首次執行需要，安裝 docx 套件
+node scripts/proposal.js             # 重新產生內部提案書 .docx
 ```
+
+提案書的附錄 A（100 種配方）與附錄 B（警語適用編號）都是從 `recipes.json` 生成的，不會跟清單脫鉤。
 
 100 支裡有 49 支含 Q10 或 GABA，帶法定警語是強制的。`recipes.json` 的 `warnings` 欄位已逐支標好，剪輯時讀取，不要靠人工判斷。
 
