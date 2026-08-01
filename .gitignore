@@ -1,6 +1,9 @@
 # 金鑰不進版控
 .env
 
+# 字型是 prepare_font.py 從系統字型抽出來的衍生檔，33 MB，隨時可重生
+fonts/
+
 # 素材與產出不進版控 — 檔案大，且來源是 Google Drive
 raw/
 out/

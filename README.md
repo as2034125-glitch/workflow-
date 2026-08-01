@@ -79,6 +79,7 @@ drive.usercontent.google.com
 ```bash
 git fetch origin && git checkout claude/cacao-video-editing-no5aac
 apt-get update -qq && apt-get install -y -qq ffmpeg fonts-noto-cjk   # ffprobe 與思源黑體
+pip install fonttools && python3 scripts/prepare_font.py   # 抽出繁中字面，必要
 export GOOGLE_API_KEY=AIza...                         # 素材不進版控，要重抓
 python3 scripts/fetch.py
 python3 scripts/build.py --draft                      # edl.json 剪點已填好
@@ -94,7 +95,10 @@ python3 scripts/probe.py     # 盤點規格 + 每支抽 6 張縮圖到 frames/
                              # → 看過縮圖後，把選定的鏡頭與時間碼填進 edl.json
 python3 scripts/build.py --draft   # 低畫質預覽，確認節奏
 python3 scripts/build.py           # 正式輸出 9:16 與 4:5
+python3 scripts/build.py --no-subs # 無字幕母帶，供外部軟體上字
 ```
+
+`build.py` 每次都會順便匯出 `out/cacao_30s.srt` 與 `out/cacao_30s_disclaimer.srt`。
 
 `edl.json` 是唯一的剪輯決策來源。改剪點、改字幕、換配樂都只動它，不要改 `scripts/build.py`。
 
@@ -113,9 +117,19 @@ python3 scripts/build.py           # 正式輸出 9:16 與 4:5
 
 1. **旁白錄音**（單軌乾聲，稿在 `docs/02-腳本-30秒.md`），放專案根目錄後填進 `edl.json` 的 `audio.voiceover`
 2. **有授權的配樂**，同樣填 `audio.bgm`
-3. **品牌字型檔**（可選）— 目前用思源黑體（Noto Sans CJK TC），開源、字重足夠，做廣告堪用。若有品牌指定字型，用 `--font` 加 `--font-family` 指定
+3. **品牌字型檔**（可選）— 目前用思源黑體的繁中字面（見下方警告），開源、字重足夠，做廣告堪用。若有品牌指定字型，用 `--font` 加 `--font-family` 指定
 4. **品牌主色** — `scripts/build.py` 的 `ACCENT` 目前是暫定的可可金 `#E8B24A`
 5. ~~原始畫質素材~~ — 已取得，`New 醇黑可可` 資料夾的 iPhone 原始檔，位元率約 9000 kbps（LINE 版只有 2100）
+
+## ⚠️ 字型：一定要先跑 prepare_font.py
+
+`fonts-noto-cjk` 是 collection 檔，face[0] 是**日文**、face[3] 才是繁中，而 **libass 永遠只取 face[0]**。不先抽出繁中字面，本片 63% 的字會渲染成日文字形（含標點位置）。
+
+```bash
+pip install fonttools && python3 scripts/prepare_font.py
+```
+
+詳見 `scripts/prepare_font.py` 的說明與 `docs/02-腳本-30秒.md`。
 
 ## 三件會影響投放的事
 

@@ -23,9 +23,13 @@ RAW = ROOT / "raw"
 OUT = ROOT / "out"
 
 # 字幕字型候選，由上往下找第一個裝得到的。(檔案路徑, ASS 用的字型家族名)
-# 家族名不能從檔名推 —— .ttc 一個檔含多個家族，libass 是靠家族名比對的。
+#
+# 第一順位是 scripts/prepare_font.py 從思源黑體抽出來的繁中字面。一定要用它 ——
+# 系統的 NotoSansCJK-Regular.ttc 是 collection，libass 無法選取內部字面而永遠
+# 取 face[0]（日文），本片 63% 的字會渲染成日文字形。詳見 prepare_font.py。
 FONT_CANDIDATES = [
-    ("/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc", "Noto Sans CJK TC"),  # 思源黑體
+    (str(ROOT / "fonts" / "CacaoSansTC-Regular.otf"), "Cacao Sans TC"),  # 思源黑體繁中字面
+    ("/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc", "Noto Sans CJK TC"),
     ("/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc", "WenQuanYi Zen Hei"),
 ]
 ACCENT = "&H004AB2E8&"  # 可可金 #E8B24A（ASS 為 BGR 序）— 換成品牌主色
@@ -102,6 +106,35 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     path.write_text(header + "\n".join(lines) + "\n", encoding="utf-8")
 
 
+def srt_time(seconds: float) -> str:
+    h, rem = divmod(seconds, 3600)
+    m, s = divmod(rem, 60)
+    return f"{int(h):02d}:{int(m):02d}:{s:06.3f}".replace(".", ",")
+
+
+def write_srt(edl: dict, out_dir: pathlib.Path) -> list[pathlib.Path]:
+    """匯出 SRT 供外部剪輯軟體上字，回傳寫出的檔案。
+
+    警語與最後一句字幕的時間完全重疊，而重疊的 SRT 段落在多數軟體只會顯示
+    其中一條 —— 法定警語有可能整個不見。所以拆成兩個獨立字幕軌，匯入後各自
+    當一層字幕。
+
+    SRT 不帶樣式，`**重音**` 標記會被拿掉，重音色要在外部軟體自己設。
+    """
+    def dump(cues, path):
+        blocks = [
+            f"{i}\n{srt_time(c['start'])} --> {srt_time(c['end'])}\n{c['text'].replace('**', '')}"
+            for i, c in enumerate(cues, 1)
+        ]
+        path.write_text("\n\n".join(blocks) + "\n", encoding="utf-8")
+        return path
+
+    written = [dump(edl["subtitles"], out_dir / "cacao_30s.srt")]
+    if note := edl.get("disclaimer"):
+        written.append(dump([note], out_dir / "cacao_30s_disclaimer.srt"))
+    return written
+
+
 def clip_duration(path: pathlib.Path) -> float:
     out = subprocess.run(
         [FFPROBE, "-v", "error", "-show_entries", "format=duration",
@@ -143,7 +176,8 @@ def transition_of(edl: dict) -> tuple[float, str]:
     return float(trans.get("duration", 0.2)), ttype
 
 
-def build_filters(edl: dict, spec: dict, ass_path: pathlib.Path, font_dir: str) -> tuple[str, str]:
+def build_filters(edl: dict, spec: dict, ass_path: pathlib.Path, font_dir: str,
+                  subs: bool = True) -> tuple[str, str]:
     """組出 filter_complex，回傳 (filtergraph, 音訊輸出標籤)。"""
     w, h, fps = spec["w"], spec["h"], edl.get("fps", 30)
     parts, vlabels, alabels = [], [], []
@@ -202,10 +236,13 @@ def build_filters(edl: dict, spec: dict, ass_path: pathlib.Path, font_dir: str) 
         pairs = "".join(v + a for v, a in zip(vlabels, alabels))
         parts.append(f"{pairs}concat=n={n}:v=1:a=1[vcat][araw]")
 
-    escaped = str(ass_path).replace("\\", "/").replace(":", r"\:")
     # 尾端補幾格再由 -t 精準截斷 —— 轉場交疊的畫格量化會讓成品少一格
-    parts.append(f"[vcat]subtitles='{escaped}':fontsdir='{font_dir}',"
-                 f"tpad=stop_mode=clone:stop_duration=0.2[vout]")
+    if subs:
+        escaped = str(ass_path).replace("\\", "/").replace(":", r"\:")
+        parts.append(f"[vcat]subtitles='{escaped}':fontsdir='{font_dir}',"
+                     f"tpad=stop_mode=clone:stop_duration=0.2[vout]")
+    else:
+        parts.append("[vcat]tpad=stop_mode=clone:stop_duration=0.2[vout]")
 
     audio = edl.get("audio", {})
     parts.append(f"[araw]volume={audio.get('original_gain', 0.35)}[aorig]")
@@ -255,7 +292,8 @@ def pick_font(path: str | None, family: str | None) -> tuple[str, str]:
     raise SystemExit("找不到任何中文字型，請用 --font 指定字型檔")
 
 
-def render(edl: dict, aspect: str, draft: bool, font: str, family: str) -> pathlib.Path:
+def render(edl: dict, aspect: str, draft: bool, font: str, family: str,
+           subs: bool = True) -> pathlib.Path:
     spec = ASPECTS[aspect]
     OUT.mkdir(exist_ok=True)
     slug = aspect.replace(":", "x")
@@ -271,8 +309,10 @@ def render(edl: dict, aspect: str, draft: bool, font: str, family: str) -> pathl
     if audio.get("bgm"):
         cmd += ["-stream_loop", "-1", "-i", str(ROOT / audio["bgm"])]
 
-    graph, alabel = build_filters(edl, spec, ass_path, str(pathlib.Path(font).parent))
-    dest = OUT / f"cacao_30s_{slug}{'_draft' if draft else ''}.mp4"
+    graph, alabel = build_filters(edl, spec, ass_path,
+                                  str(pathlib.Path(font).parent), subs)
+    suffix = ("_nosub" if not subs else "") + ("_draft" if draft else "")
+    dest = OUT / f"cacao_30s_{slug}{suffix}.mp4"
     # 素材混了 29.97 與 30 fps，串接時會多進位一兩格。用 EDL 算出的總長硬性截斷，
     # 確保成品長度與剪輯決策完全一致。
     total = sum((s["out"] - s["in"]) / s.get("speed", 1.0) for s in edl["segments"])
@@ -299,6 +339,8 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--aspect", choices=list(ASPECTS), action="append")
     ap.add_argument("--draft", action="store_true")
+    ap.add_argument("--no-subs", action="store_true",
+                    help="不燒字幕，輸出乾淨母帶供外部軟體上字")
     ap.add_argument("--font", help="字幕字型檔路徑；預設自動找思源黑體")
     ap.add_argument("--font-family", help="ASS 用的字型家族名，例如 'Noto Sans CJK TC'。"
                                          "指定 .ttc 這種多家族字型檔時需要")
@@ -328,11 +370,19 @@ def main() -> int:
 
     font_path, font_family = pick_font(args.font, args.font_family)
     print(f"字幕字型：{font_family}（{font_path}）")
+    if font_path.endswith(".ttc") and "Noto" in font_family:
+        print("⚠ 正在用 .ttc，libass 只會取 face[0]＝日文字面，繁體字形會不對。\n"
+              "  請先跑：pip install fonttools && python3 scripts/prepare_font.py",
+              file=sys.stderr)
     if "WenQuanYi" in font_family:
-        print("提醒：WQY Zen Hei 是最後備援，字重不足；裝 fonts-noto-cjk 或用 --font 指定品牌字型")
+        print("提醒：WQY Zen Hei 是最後備援，字重不足；裝 fonts-noto-cjk 後跑 prepare_font.py")
+
+    OUT.mkdir(exist_ok=True)
+    srts = write_srt(edl, OUT)
+    print("字幕檔：" + "、".join(s.name for s in srts) + "（供外部軟體上字）")
 
     for aspect in args.aspect or ["9:16", "4:5"]:
-        render(edl, aspect, args.draft, font_path, font_family)
+        render(edl, aspect, args.draft, font_path, font_family, subs=not args.no_subs)
     print(f"\n完成，檔案在 {OUT}")
     return 0
 
