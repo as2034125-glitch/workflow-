@@ -1,0 +1,2404 @@
+{
+  "_comment": "由 scripts/recipes.py 從 01-100種喝法清單.md 產生，請勿手動編輯。",
+  "source": "docs/100-ways/01-100種喝法清單.md",
+  "sachet_g": 35,
+  "warning_text": {
+    "Q10": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。",
+    "GABA": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+  },
+  "series": [
+    {
+      "id": "S1",
+      "title": "手搖店平替",
+      "from": 1,
+      "to": 10
+    },
+    {
+      "id": "S2",
+      "title": "只加水的搖法變化",
+      "from": 11,
+      "to": 20
+    },
+    {
+      "id": "S3",
+      "title": "植物奶與豆漿",
+      "from": 21,
+      "to": 30
+    },
+    {
+      "id": "S4",
+      "title": "咖啡與茶",
+      "from": 31,
+      "to": 40
+    },
+    {
+      "id": "S5",
+      "title": "水果",
+      "from": 41,
+      "to": 50
+    },
+    {
+      "id": "S6",
+      "title": "超商一分鐘",
+      "from": 51,
+      "to": 60
+    },
+    {
+      "id": "S7",
+      "title": "早餐碗與麥片",
+      "from": 61,
+      "to": 70
+    },
+    {
+      "id": "S8",
+      "title": "甜點與冰品",
+      "from": 71,
+      "to": 80
+    },
+    {
+      "id": "S9",
+      "title": "熱飲與冬天",
+      "from": 81,
+      "to": 90
+    },
+    {
+      "id": "S10",
+      "title": "晚安・零咖啡因",
+      "from": 91,
+      "to": 100
+    }
+  ],
+  "recipes": [
+    {
+      "id": 1,
+      "code": "#001",
+      "series": "S1",
+      "name": "珍奶的那個位置",
+      "flavors": [
+        {
+          "key": "紅茶",
+          "name": "植感奶霧紅茶",
+          "sku_1": "VG00T1",
+          "sku_12": "VG00T2",
+          "protein_g": 24.1
+        }
+      ],
+      "method": "1 包 + 冰水 300ml 搖勻，加市售蒟蒻／寒天珍珠",
+      "hook": "開場並排兩杯，看不出哪杯是哪杯",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S1_001_珍奶的那個位置"
+    },
+    {
+      "id": 2,
+      "code": "#002",
+      "series": "S1",
+      "name": "鮮奶茶平替",
+      "flavors": [
+        {
+          "key": "紅茶",
+          "name": "植感奶霧紅茶",
+          "sku_1": "VG00T1",
+          "sku_12": "VG00T2",
+          "protein_g": 24.1
+        }
+      ],
+      "method": "1 包 + 無糖豆漿 200ml + 冰水 100ml",
+      "hook": "倒豆漿的瞬間分層再搖勻",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S1_002_鮮奶茶平替"
+    },
+    {
+      "id": 3,
+      "code": "#003",
+      "series": "S1",
+      "name": "抹茶拿鐵平替",
+      "flavors": [
+        {
+          "key": "抹茶",
+          "name": "靜岡抹茶燕麥風味",
+          "sku_1": "VG00M1",
+          "sku_12": "VG00M2",
+          "protein_g": 23.0
+        }
+      ],
+      "method": "1 包 + 燕麥奶 250ml + 冰塊滿杯",
+      "hook": "抹茶綠壓在奶白上的漸層",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S1_003_抹茶拿鐵平替"
+    },
+    {
+      "id": 4,
+      "code": "#004",
+      "series": "S1",
+      "name": "巧克力那杯",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 冰水 300ml，用力搖 30 秒到起綿泡",
+      "hook": "倒出來時的泡沫層",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S1_004_巧克力那杯"
+    },
+    {
+      "id": 5,
+      "code": "#005",
+      "series": "S1",
+      "name": "冰拿鐵平替",
+      "flavors": [
+        {
+          "key": "拿鐵",
+          "name": "拿鐵風味",
+          "sku_1": "VG00L1",
+          "sku_12": "VG00L2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 超商冰美式中杯（約 250ml）直接倒進搖搖杯",
+      "hook": "全程在超商門口拍完",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S1_005_冰拿鐵平替"
+    },
+    {
+      "id": 6,
+      "code": "#006",
+      "series": "S1",
+      "name": "濃厚芝麻那款",
+      "flavors": [
+        {
+          "key": "芝麻",
+          "name": "黑芝麻牛奶風味",
+          "sku_1": "VG00S1",
+          "sku_12": "VG00S2",
+          "protein_g": 22.0
+        }
+      ],
+      "method": "1 包 + 無糖豆漿 250ml，搖到看得到芝麻粒",
+      "hook": "特寫芝麻碎粒懸浮",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S1_006_濃厚芝麻那款"
+    },
+    {
+      "id": 7,
+      "code": "#007",
+      "series": "S1",
+      "name": "芋泥感穀物",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "1 包 + 無糖豆漿 250ml，少水搖成濃稠狀",
+      "hook": "湯匙劃過留痕的濃度",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S1_007_芋泥感穀物"
+    },
+    {
+      "id": 8,
+      "code": "#008",
+      "series": "S1",
+      "name": "香蕉牛奶（果汁攤款）",
+      "flavors": [
+        {
+          "key": "香蕉",
+          "name": "香蕉牛奶風味",
+          "sku_1": "VG00B1",
+          "sku_12": "VG00B2",
+          "protein_g": 26.2
+        }
+      ],
+      "method": "1 包 + 無糖豆漿 200ml + 真香蕉半根，果汁機",
+      "hook": "真香蕉丟進去的那一下",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S1_008_香蕉牛奶（果汁攤款）"
+    },
+    {
+      "id": 9,
+      "code": "#009",
+      "series": "S1",
+      "name": "開心果拿鐵",
+      "flavors": [
+        {
+          "key": "開心果",
+          "name": "開心果可可",
+          "sku_1": "VG00P1",
+          "sku_12": "VG00P2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 燕麥奶 200ml + 濃縮咖啡 1 份（約 30ml）",
+      "hook": "咖啡沖進堅果色的對比",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S1_009_開心果拿鐵"
+    },
+    {
+      "id": 10,
+      "code": "#010",
+      "series": "S1",
+      "name": "麥仔茶感",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "1 包 + 冰水 350ml，冰鎮 10 分鐘後喝",
+      "hook": "冰塊撞杯壁的聲音",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S1_010_麥仔茶感"
+    },
+    {
+      "id": 11,
+      "code": "#011",
+      "series": "S2",
+      "name": "標準版",
+      "flavors": [
+        {
+          "key": "任一",
+          "note": "拍攝時實際選用的口味，警語跟著該口味走"
+        }
+      ],
+      "method": "1 包 + 冰水 400ml，搖 15 秒",
+      "hook": "建立基準，後面 9 支都跟它比",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S2_011_標準版"
+    },
+    {
+      "id": 12,
+      "code": "#012",
+      "series": "S2",
+      "name": "濃厚版",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 冰水 250ml",
+      "hook": "同一包，濃度差看得出來",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S2_012_濃厚版"
+    },
+    {
+      "id": 13,
+      "code": "#013",
+      "series": "S2",
+      "name": "爆泡版",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 水 300ml，大力搖滿 30 秒",
+      "hook": "倒出時整層綿密泡沫",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S2_013_爆泡版"
+    },
+    {
+      "id": 14,
+      "code": "#014",
+      "series": "S2",
+      "name": "漸層版",
+      "flavors": [
+        {
+          "key": "抹茶",
+          "name": "靜岡抹茶燕麥風味",
+          "sku_1": "VG00M1",
+          "sku_12": "VG00M2",
+          "protein_g": 23.0
+        }
+      ],
+      "method": "先搖濃的 150ml，再沿杯壁緩緩加冰水 200ml 不攪",
+      "hook": "兩層分明，喝之前才攪",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S2_014_漸層版"
+    },
+    {
+      "id": 15,
+      "code": "#015",
+      "series": "S2",
+      "name": "氣泡版",
+      "flavors": [
+        {
+          "key": "紅茶",
+          "name": "植感奶霧紅茶",
+          "sku_1": "VG00T1",
+          "sku_12": "VG00T2",
+          "protein_g": 24.1
+        }
+      ],
+      "method": "先用水 100ml 化開，**再慢慢倒入**氣泡水 300ml",
+      "hook": "不能密封搖，會噴——這點要拍出來",
+      "warnings": [],
+      "food_safety": [
+        "請勿密封搖晃"
+      ],
+      "slug": "100ways_S2_015_氣泡版"
+    },
+    {
+      "id": 16,
+      "code": "#016",
+      "series": "S2",
+      "name": "冰磚版",
+      "flavors": [
+        {
+          "key": "拿鐵",
+          "name": "拿鐵風味",
+          "sku_1": "VG00L1",
+          "sku_12": "VG00L2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "前晚泡好倒進製冰盒冷凍，隔天用冰磚兌水",
+      "hook": "冰磚在杯裡慢慢化開的縮時",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S2_016_冰磚版"
+    },
+    {
+      "id": 17,
+      "code": "#017",
+      "series": "S2",
+      "name": "冷萃版",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "睡前泡好冷藏過夜，隔天早上喝",
+      "hook": "前後對照，口感更順不沙",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S2_017_冷萃版"
+    },
+    {
+      "id": 18,
+      "code": "#018",
+      "series": "S2",
+      "name": "搖 10 下 vs 搖 100 下",
+      "flavors": [
+        {
+          "key": "任一",
+          "note": "拍攝時實際選用的口味，警語跟著該口味走"
+        }
+      ],
+      "method": "同一款分兩杯，一杯搖 10 下一杯搖 100 下",
+      "hook": "兩杯並排倒出，差異一目了然",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S2_018_搖 10 下 vs 搖 100 下"
+    },
+    {
+      "id": 19,
+      "code": "#019",
+      "series": "S2",
+      "name": "少水多冰",
+      "flavors": [
+        {
+          "key": "香蕉",
+          "name": "香蕉牛奶風味",
+          "sku_1": "VG00B1",
+          "sku_12": "VG00B2",
+          "protein_g": 26.2
+        }
+      ],
+      "method": "1 包 + 水 200ml + 冰塊滿杯，搖到接近沙冰",
+      "hook": "傾杯時緩慢流動的稠度",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S2_019_少水多冰"
+    },
+    {
+      "id": 20,
+      "code": "#020",
+      "series": "S2",
+      "name": "溫水版",
+      "flavors": [
+        {
+          "key": "芝麻",
+          "name": "黑芝麻牛奶風味",
+          "sku_1": "VG00S1",
+          "sku_12": "VG00S2",
+          "protein_g": 22.0
+        }
+      ],
+      "method": "1 包 + 45°C 溫水 300ml",
+      "hook": "冬天不燙口也不結塊",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S2_020_溫水版"
+    },
+    {
+      "id": 21,
+      "code": "#021",
+      "series": "S3",
+      "name": "豆漿穀物",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "1 包 + 無糖豆漿 300ml",
+      "hook": "台式早餐桌的畫面",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S3_021_豆漿穀物"
+    },
+    {
+      "id": 22,
+      "code": "#022",
+      "series": "S3",
+      "name": "豆漿芝麻",
+      "flavors": [
+        {
+          "key": "芝麻",
+          "name": "黑芝麻牛奶風味",
+          "sku_1": "VG00S1",
+          "sku_12": "VG00S2",
+          "protein_g": 22.0
+        }
+      ],
+      "method": "1 包 + 無糖豆漿 300ml",
+      "hook": "濃到湯匙立得住的版本",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S3_022_豆漿芝麻"
+    },
+    {
+      "id": 23,
+      "code": "#023",
+      "series": "S3",
+      "name": "燕麥奶拿鐵",
+      "flavors": [
+        {
+          "key": "拿鐵",
+          "name": "拿鐵風味",
+          "sku_1": "VG00L1",
+          "sku_12": "VG00L2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 燕麥奶 280ml + 冰塊",
+      "hook": "咖啡廳質感，全程俯拍",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S3_023_燕麥奶拿鐵"
+    },
+    {
+      "id": 24,
+      "code": "#024",
+      "series": "S3",
+      "name": "雙燕麥",
+      "flavors": [
+        {
+          "key": "抹茶",
+          "name": "靜岡抹茶燕麥風味",
+          "sku_1": "VG00M1",
+          "sku_12": "VG00M2",
+          "protein_g": 23.0
+        }
+      ],
+      "method": "1 包 + 燕麥奶 280ml",
+      "hook": "產品本身含燕麥，再加燕麥奶",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S3_024_雙燕麥"
+    },
+    {
+      "id": 25,
+      "code": "#025",
+      "series": "S3",
+      "name": "杏仁奶開心果",
+      "flavors": [
+        {
+          "key": "開心果",
+          "name": "開心果可可",
+          "sku_1": "VG00P1",
+          "sku_12": "VG00P2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 無糖杏仁奶 280ml",
+      "hook": "堅果配堅果",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S3_025_杏仁奶開心果"
+    },
+    {
+      "id": 26,
+      "code": "#026",
+      "series": "S3",
+      "name": "椰香可可",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 椰漿 80ml + 水 220ml",
+      "hook": "椰漿倒進去的乳白漩渦",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S3_026_椰香可可"
+    },
+    {
+      "id": 27,
+      "code": "#027",
+      "series": "S3",
+      "name": "豆漿奶茶",
+      "flavors": [
+        {
+          "key": "紅茶",
+          "name": "植感奶霧紅茶",
+          "sku_1": "VG00T1",
+          "sku_12": "VG00T2",
+          "protein_g": 24.1
+        }
+      ],
+      "method": "1 包 + 無糖豆漿 300ml",
+      "hook": "台式豆漿紅茶的既視感",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S3_027_豆漿奶茶"
+    },
+    {
+      "id": 28,
+      "code": "#028",
+      "series": "S3",
+      "name": "米漿穀物",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "1 包 + 米漿 250ml（米漿本身有甜度，水量減半）",
+      "hook": "早餐店的味道",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S3_028_米漿穀物"
+    },
+    {
+      "id": 29,
+      "code": "#029",
+      "series": "S3",
+      "name": "豆漿香蕉",
+      "flavors": [
+        {
+          "key": "香蕉",
+          "name": "香蕉牛奶風味",
+          "sku_1": "VG00B1",
+          "sku_12": "VG00B2",
+          "protein_g": 26.2
+        }
+      ],
+      "method": "1 包 + 無糖豆漿 300ml",
+      "hook": "睡前那杯的標準款",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S3_029_豆漿香蕉"
+    },
+    {
+      "id": 30,
+      "code": "#030",
+      "series": "S3",
+      "name": "濃豆漿可可 1:1",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 濃豆漿 150ml + 水 150ml",
+      "hook": "最濃的一支，收尾系列",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S3_030_濃豆漿可可 1:1"
+    },
+    {
+      "id": 31,
+      "code": "#031",
+      "series": "S4",
+      "name": "雙倍咖啡",
+      "flavors": [
+        {
+          "key": "拿鐵",
+          "name": "拿鐵風味",
+          "sku_1": "VG00L1",
+          "sku_12": "VG00L2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 冰美式 250ml",
+      "hook": "拿鐵風味再加真咖啡",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S4_031_雙倍咖啡"
+    },
+    {
+      "id": 32,
+      "code": "#032",
+      "series": "S4",
+      "name": "摩卡",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 冰美式 250ml",
+      "hook": "可可遇上咖啡的經典組合",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S4_032_摩卡"
+    },
+    {
+      "id": 33,
+      "code": "#033",
+      "series": "S4",
+      "name": "堅果摩卡",
+      "flavors": [
+        {
+          "key": "開心果",
+          "name": "開心果可可",
+          "sku_1": "VG00P1",
+          "sku_12": "VG00P2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 冰美式 250ml",
+      "hook": "開心果的堅果香被咖啡拉出來",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S4_033_堅果摩卡"
+    },
+    {
+      "id": 34,
+      "code": "#034",
+      "series": "S4",
+      "name": "穀物濃縮",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "1 包 + 濃縮咖啡 2 份 + 水 250ml",
+      "hook": "穀香壓住咖啡的酸",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S4_034_穀物濃縮"
+    },
+    {
+      "id": 35,
+      "code": "#035",
+      "series": "S4",
+      "name": "加倍茶感",
+      "flavors": [
+        {
+          "key": "紅茶",
+          "name": "植感奶霧紅茶",
+          "sku_1": "VG00T1",
+          "sku_12": "VG00T2",
+          "protein_g": 24.1
+        }
+      ],
+      "method": "1 包 + 超商無糖紅茶 300ml",
+      "hook": "茶味不夠的人的解法",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S4_035_加倍茶感"
+    },
+    {
+      "id": 36,
+      "code": "#036",
+      "series": "S4",
+      "name": "綠茶抹茶",
+      "flavors": [
+        {
+          "key": "抹茶",
+          "name": "靜岡抹茶燕麥風味",
+          "sku_1": "VG00M1",
+          "sku_12": "VG00M2",
+          "protein_g": 23.0
+        }
+      ],
+      "method": "1 包 + 無糖綠茶 300ml",
+      "hook": "綠上加綠",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S4_036_綠茶抹茶"
+    },
+    {
+      "id": 37,
+      "code": "#037",
+      "series": "S4",
+      "name": "烏龍穀物",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "1 包 + 無糖烏龍茶 300ml",
+      "hook": "意外好喝的一支",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S4_037_烏龍穀物"
+    },
+    {
+      "id": 38,
+      "code": "#038",
+      "series": "S4",
+      "name": "黑上加黑",
+      "flavors": [
+        {
+          "key": "芝麻",
+          "name": "黑芝麻牛奶風味",
+          "sku_1": "VG00S1",
+          "sku_12": "VG00S2",
+          "protein_g": 22.0
+        }
+      ],
+      "method": "1 包 + 冷萃咖啡 250ml",
+      "hook": "顏色最深的一杯",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S4_038_黑上加黑"
+    },
+    {
+      "id": 39,
+      "code": "#039",
+      "series": "S4",
+      "name": "半抹茶半可可",
+      "flavors": [
+        {
+          "key": "抹茶",
+          "name": "靜岡抹茶燕麥風味",
+          "sku_1": "VG00M1",
+          "sku_12": "VG00M2",
+          "protein_g": 23.0
+        },
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "各半包 + 水 350ml",
+      "hook": "兩包混搖，開啟「混口味」玩法",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S4_039_半抹茶半可可"
+    },
+    {
+      "id": 40,
+      "code": "#040",
+      "series": "S4",
+      "name": "咖啡冰磚拿鐵",
+      "flavors": [
+        {
+          "key": "拿鐵",
+          "name": "拿鐵風味",
+          "sku_1": "VG00L1",
+          "sku_12": "VG00L2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 水 200ml，加咖啡冰磚",
+      "hook": "化開不會變淡，反而更濃",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S4_040_咖啡冰磚拿鐵"
+    },
+    {
+      "id": 41,
+      "code": "#041",
+      "series": "S5",
+      "name": "香蕉加倍",
+      "flavors": [
+        {
+          "key": "香蕉",
+          "name": "香蕉牛奶風味",
+          "sku_1": "VG00B1",
+          "sku_12": "VG00B2",
+          "protein_g": 26.2
+        }
+      ],
+      "method": "1 包 + 豆漿 250ml + 真香蕉 1 根，果汁機",
+      "hook": "香蕉風味 vs 真香蕉的雙重",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S5_041_香蕉加倍"
+    },
+    {
+      "id": 42,
+      "code": "#042",
+      "series": "S5",
+      "name": "巧克力香蕉",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 冷凍香蕉 1 根 + 水 250ml，果汁機",
+      "hook": "冷凍香蕉打出來的冰淇淋感",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S5_042_巧克力香蕉"
+    },
+    {
+      "id": 43,
+      "code": "#043",
+      "series": "S5",
+      "name": "酪梨穀物",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "1 包 + 酪梨 1/4 顆 + 豆漿 250ml，果汁機",
+      "hook": "濃稠到要用湯匙",
+      "warnings": [],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S5_043_酪梨穀物"
+    },
+    {
+      "id": 44,
+      "code": "#044",
+      "series": "S5",
+      "name": "芒果奶茶",
+      "flavors": [
+        {
+          "key": "紅茶",
+          "name": "植感奶霧紅茶",
+          "sku_1": "VG00T1",
+          "sku_12": "VG00T2",
+          "protein_g": 24.1
+        }
+      ],
+      "method": "1 包 + 冷凍芒果 100g + 水 250ml，果汁機",
+      "hook": "鮮黃配奶茶色",
+      "warnings": [],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S5_044_芒果奶茶"
+    },
+    {
+      "id": 45,
+      "code": "#045",
+      "series": "S5",
+      "name": "草莓香蕉",
+      "flavors": [
+        {
+          "key": "香蕉",
+          "name": "香蕉牛奶風味",
+          "sku_1": "VG00B1",
+          "sku_12": "VG00B2",
+          "protein_g": 26.2
+        }
+      ],
+      "method": "1 包 + 冷凍草莓 80g + 豆漿 250ml，果汁機",
+      "hook": "粉紅色，最好拍的一支",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S5_045_草莓香蕉"
+    },
+    {
+      "id": 46,
+      "code": "#046",
+      "series": "S5",
+      "name": "蘋果穀物",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "1 包 + 蘋果丁 半顆 + 水 280ml，果汁機",
+      "hook": "帶果粒的口感",
+      "warnings": [],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S5_046_蘋果穀物"
+    },
+    {
+      "id": 47,
+      "code": "#047",
+      "series": "S5",
+      "name": "藍莓抹茶",
+      "flavors": [
+        {
+          "key": "抹茶",
+          "name": "靜岡抹茶燕麥風味",
+          "sku_1": "VG00M1",
+          "sku_12": "VG00M2",
+          "protein_g": 23.0
+        }
+      ],
+      "method": "1 包 + 冷凍藍莓 60g + 燕麥奶 250ml，果汁機",
+      "hook": "紫綠撞色",
+      "warnings": [],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S5_047_藍莓抹茶"
+    },
+    {
+      "id": 48,
+      "code": "#048",
+      "series": "S5",
+      "name": "火龍果香蕉",
+      "flavors": [
+        {
+          "key": "香蕉",
+          "name": "香蕉牛奶風味",
+          "sku_1": "VG00B1",
+          "sku_12": "VG00B2",
+          "protein_g": 26.2
+        }
+      ],
+      "method": "1 包 + 紅肉火龍果 1/2 顆 + 水 250ml，果汁機",
+      "hook": "螢光桃紅，演算法很吃這個顏色",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S5_048_火龍果香蕉"
+    },
+    {
+      "id": 49,
+      "code": "#049",
+      "series": "S5",
+      "name": "花生醬香蕉可可",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 香蕉 1 根 + 無糖花生醬 1 匙 + 水 250ml，果汁機",
+      "hook": "三種濃的東西疊在一起",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S5_049_花生醬香蕉可可"
+    },
+    {
+      "id": 50,
+      "code": "#050",
+      "series": "S5",
+      "name": "冷凍葡萄紅茶",
+      "flavors": [
+        {
+          "key": "紅茶",
+          "name": "植感奶霧紅茶",
+          "sku_1": "VG00T1",
+          "sku_12": "VG00T2",
+          "protein_g": 24.1
+        }
+      ],
+      "method": "1 包 + 冷凍葡萄 80g + 水 280ml，果汁機",
+      "hook": "葡萄當冰塊用",
+      "warnings": [],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S5_050_冷凍葡萄紅茶"
+    },
+    {
+      "id": 51,
+      "code": "#051",
+      "series": "S6",
+      "name": "美式直接倒",
+      "flavors": [
+        {
+          "key": "拿鐵",
+          "name": "拿鐵風味",
+          "sku_1": "VG00L1",
+          "sku_12": "VG00L2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 超商冰美式中杯",
+      "hook": "結帳完 30 秒內喝到",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S6_051_美式直接倒"
+    },
+    {
+      "id": 52,
+      "code": "#052",
+      "series": "S6",
+      "name": "豆漿穀物",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "1 包 + 超商無糖豆漿 1 瓶",
+      "hook": "最便宜的一支",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S6_052_豆漿穀物"
+    },
+    {
+      "id": 53,
+      "code": "#053",
+      "series": "S6",
+      "name": "燕麥奶抹茶",
+      "flavors": [
+        {
+          "key": "抹茶",
+          "name": "靜岡抹茶燕麥風味",
+          "sku_1": "VG00M1",
+          "sku_12": "VG00M2",
+          "protein_g": 23.0
+        }
+      ],
+      "method": "1 包 + 超商燕麥奶 1 瓶",
+      "hook": "全素也有得選",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S6_053_燕麥奶抹茶"
+    },
+    {
+      "id": 54,
+      "code": "#054",
+      "series": "S6",
+      "name": "氣泡可可",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包先用少量水化開，再慢倒超商氣泡水",
+      "hook": "慢倒不搖，這是重點",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [
+        "請勿密封搖晃"
+      ],
+      "slug": "100ways_S6_054_氣泡可可"
+    },
+    {
+      "id": 55,
+      "code": "#055",
+      "series": "S6",
+      "name": "無糖茶紅茶",
+      "flavors": [
+        {
+          "key": "紅茶",
+          "name": "植感奶霧紅茶",
+          "sku_1": "VG00T1",
+          "sku_12": "VG00T2",
+          "protein_g": 24.1
+        }
+      ],
+      "method": "1 包 + 超商無糖紅茶",
+      "hook": "茶味加倍",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S6_055_無糖茶紅茶"
+    },
+    {
+      "id": 56,
+      "code": "#056",
+      "series": "S6",
+      "name": "門市熱水穀物",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "1 包 + 門市飲水機熱水（先調糊再補水）",
+      "hook": "冬天版的超商解法",
+      "warnings": [],
+      "food_safety": [
+        "水溫勿超過80°C"
+      ],
+      "slug": "100ways_S6_056_門市熱水穀物"
+    },
+    {
+      "id": 57,
+      "code": "#057",
+      "series": "S6",
+      "name": "香蕉配香蕉",
+      "flavors": [
+        {
+          "key": "香蕉",
+          "name": "香蕉牛奶風味",
+          "sku_1": "VG00B1",
+          "sku_12": "VG00B2",
+          "protein_g": 26.2
+        }
+      ],
+      "method": "1 包 + 超商豆漿 + 超商香蕉 1 根（邊喝邊吃）",
+      "hook": "最不用工具的一支",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S6_057_香蕉配香蕉"
+    },
+    {
+      "id": 58,
+      "code": "#058",
+      "series": "S6",
+      "name": "冰塊杯開心果",
+      "flavors": [
+        {
+          "key": "開心果",
+          "name": "開心果可可",
+          "sku_1": "VG00P1",
+          "sku_12": "VG00P2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 超商冰塊杯 + 常溫水",
+      "hook": "冰塊杯的妙用",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S6_058_冰塊杯開心果"
+    },
+    {
+      "id": 59,
+      "code": "#059",
+      "series": "S6",
+      "name": "優格穀物碗",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "1 包 + 超商無糖優格 1 杯，拌成碗",
+      "hook": "用吃的不是用喝的",
+      "warnings": [],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S6_059_優格穀物碗"
+    },
+    {
+      "id": 60,
+      "code": "#060",
+      "series": "S6",
+      "name": "三件式摩卡",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 超商冰美式 + 冰塊杯",
+      "hook": "收銀台三樣東西的組合",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S6_060_三件式摩卡"
+    },
+    {
+      "id": 61,
+      "code": "#061",
+      "series": "S7",
+      "name": "隔夜燕麥・穀物",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "燕麥片 40g + 1 包 + 豆漿 200ml，冷藏過夜",
+      "hook": "前晚做，早上直接吃",
+      "warnings": [],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S7_061_隔夜燕麥・穀物"
+    },
+    {
+      "id": 62,
+      "code": "#062",
+      "series": "S7",
+      "name": "隔夜燕麥・可可",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "燕麥片 40g + 1 包 + 豆漿 200ml，冷藏過夜",
+      "hook": "巧克力口味的早餐",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S7_062_隔夜燕麥・可可"
+    },
+    {
+      "id": 63,
+      "code": "#063",
+      "series": "S7",
+      "name": "優格碗",
+      "flavors": [
+        {
+          "key": "抹茶",
+          "name": "靜岡抹茶燕麥風味",
+          "sku_1": "VG00M1",
+          "sku_12": "VG00M2",
+          "protein_g": 23.0
+        }
+      ],
+      "method": "無糖優格 200g + 1 包拌勻，撒堅果",
+      "hook": "抹茶綠拌進白優格",
+      "warnings": [],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S7_063_優格碗"
+    },
+    {
+      "id": 64,
+      "code": "#064",
+      "series": "S7",
+      "name": "奶昔碗",
+      "flavors": [
+        {
+          "key": "香蕉",
+          "name": "香蕉牛奶風味",
+          "sku_1": "VG00B1",
+          "sku_12": "VG00B2",
+          "protein_g": 26.2
+        }
+      ],
+      "method": "冷凍香蕉 2 根 + 1 包 + 豆漿 80ml，果汁機打稠",
+      "hook": "湯匙插著不倒",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S7_064_奶昔碗"
+    },
+    {
+      "id": 65,
+      "code": "#065",
+      "series": "S7",
+      "name": "蛋白布丁",
+      "flavors": [
+        {
+          "key": "開心果",
+          "name": "開心果可可",
+          "sku_1": "VG00P1",
+          "sku_12": "VG00P2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 豆漿 250ml + 吉利丁粉 5g，冷藏 3 小時",
+      "hook": "脫模晃動的那一下",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [
+        "冷藏保存，3日內食用完畢"
+      ],
+      "slug": "100ways_S7_065_蛋白布丁"
+    },
+    {
+      "id": 66,
+      "code": "#066",
+      "series": "S7",
+      "name": "蛋白粥",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "熱燕麥粥煮好放到不燙手，再拌入 1 包",
+      "hook": "一定要降溫再拌，會結塊",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S7_066_蛋白粥"
+    },
+    {
+      "id": 67,
+      "code": "#067",
+      "series": "S7",
+      "name": "芝麻豆花",
+      "flavors": [
+        {
+          "key": "芝麻",
+          "name": "黑芝麻牛奶風味",
+          "sku_1": "VG00S1",
+          "sku_12": "VG00S2",
+          "protein_g": 22.0
+        }
+      ],
+      "method": "市售豆花 + 1 包乾粉撒上，拌開",
+      "hook": "乾粉撒下去的畫面",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S7_067_芝麻豆花"
+    },
+    {
+      "id": 68,
+      "code": "#068",
+      "series": "S7",
+      "name": "可可抹醬",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 水 25ml 調成濃醬，抹吐司",
+      "hook": "抹刀劃過的質地",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S7_068_可可抹醬"
+    },
+    {
+      "id": 69,
+      "code": "#069",
+      "series": "S7",
+      "name": "奇亞籽布丁",
+      "flavors": [
+        {
+          "key": "紅茶",
+          "name": "植感奶霧紅茶",
+          "sku_1": "VG00T1",
+          "sku_12": "VG00T2",
+          "protein_g": 24.1
+        }
+      ],
+      "method": "奇亞籽 20g + 1 包 + 豆漿 200ml，冷藏過夜",
+      "hook": "奇亞籽膨脹的縮時",
+      "warnings": [],
+      "food_safety": [
+        "冷藏保存，3日內食用完畢",
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S7_069_奇亞籽布丁"
+    },
+    {
+      "id": 70,
+      "code": "#070",
+      "series": "S7",
+      "name": "咖啡牛奶麥片",
+      "flavors": [
+        {
+          "key": "拿鐵",
+          "name": "拿鐵風味",
+          "sku_1": "VG00L1",
+          "sku_12": "VG00L2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "乾麥片 1 碗 + 1 包 + 冰水 200ml 直接沖",
+      "hook": "免煮的懶人早餐",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S7_070_咖啡牛奶麥片"
+    },
+    {
+      "id": 71,
+      "code": "#071",
+      "series": "S8",
+      "name": "蛋白冰棒",
+      "flavors": [
+        {
+          "key": "香蕉",
+          "name": "香蕉牛奶風味",
+          "sku_1": "VG00B1",
+          "sku_12": "VG00B2",
+          "protein_g": 26.2
+        }
+      ],
+      "method": "1 包 + 豆漿 250ml，倒模冷凍 4 小時",
+      "hook": "脫模的那一下",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [
+        "冷藏保存，3日內食用完畢"
+      ],
+      "slug": "100ways_S8_071_蛋白冰棒"
+    },
+    {
+      "id": 72,
+      "code": "#072",
+      "series": "S8",
+      "name": "香蕉冰淇淋",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "冷凍香蕉 2 根 + 1 包，食物調理機打到滑順",
+      "hook": "挖球器挖起來的形狀",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S8_072_香蕉冰淇淋"
+    },
+    {
+      "id": 73,
+      "code": "#073",
+      "series": "S8",
+      "name": "可可冰沙",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 冰塊 200g + 水 150ml，果汁機",
+      "hook": "高速打冰的聲音",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S8_073_可可冰沙"
+    },
+    {
+      "id": 74,
+      "code": "#074",
+      "series": "S8",
+      "name": "抹茶淋醬",
+      "flavors": [
+        {
+          "key": "抹茶",
+          "name": "靜岡抹茶燕麥風味",
+          "sku_1": "VG00M1",
+          "sku_12": "VG00M2",
+          "protein_g": 23.0
+        }
+      ],
+      "method": "1 包 + 水 30ml 調成濃醬，淋剉冰或優格",
+      "hook": "濃醬緩慢流下",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S8_074_抹茶淋醬"
+    },
+    {
+      "id": 75,
+      "code": "#075",
+      "series": "S8",
+      "name": "蛋白奶酪",
+      "flavors": [
+        {
+          "key": "開心果",
+          "name": "開心果可可",
+          "sku_1": "VG00P1",
+          "sku_12": "VG00P2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 豆漿 250ml + 吉利丁 5g，冷藏 3 小時",
+      "hook": "湯匙壓下去的彈性",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [
+        "冷藏保存，3日內食用完畢"
+      ],
+      "slug": "100ways_S8_075_蛋白奶酪"
+    },
+    {
+      "id": 76,
+      "code": "#076",
+      "series": "S8",
+      "name": "免烤提拉米蘇杯",
+      "flavors": [
+        {
+          "key": "拿鐵",
+          "name": "拿鐵風味",
+          "sku_1": "VG00L1",
+          "sku_12": "VG00L2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "手指餅乾鋪底，1 包 + 豆漿 150ml 調濃層層堆疊，冷藏 2 小時",
+      "hook": "挖開的斷面",
+      "warnings": [],
+      "food_safety": [
+        "冷藏保存，3日內食用完畢"
+      ],
+      "slug": "100ways_S8_076_免烤提拉米蘇杯"
+    },
+    {
+      "id": 77,
+      "code": "#077",
+      "series": "S8",
+      "name": "鷹嘴豆水慕斯",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "鷹嘴豆水 100ml 打發 + 1 包，輕拌後冷藏",
+      "hook": "全素也能做慕斯",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [
+        "冷藏保存，3日內食用完畢"
+      ],
+      "slug": "100ways_S8_077_鷹嘴豆水慕斯"
+    },
+    {
+      "id": 78,
+      "code": "#078",
+      "series": "S8",
+      "name": "芝麻淋醬豆花",
+      "flavors": [
+        {
+          "key": "芝麻",
+          "name": "黑芝麻牛奶風味",
+          "sku_1": "VG00S1",
+          "sku_12": "VG00S2",
+          "protein_g": 22.0
+        }
+      ],
+      "method": "1 包 + 水 30ml 調濃醬，淋豆花",
+      "hook": "黑醬蓋住白豆花",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S8_078_芝麻淋醬豆花"
+    },
+    {
+      "id": 79,
+      "code": "#079",
+      "series": "S8",
+      "name": "奶茶凍",
+      "flavors": [
+        {
+          "key": "紅茶",
+          "name": "植感奶霧紅茶",
+          "sku_1": "VG00T1",
+          "sku_12": "VG00T2",
+          "protein_g": 24.1
+        }
+      ],
+      "method": "1 包 + 水 300ml + 寒天粉 4g，煮溶後冷藏",
+      "hook": "切成方塊的 Q 彈",
+      "warnings": [],
+      "food_safety": [
+        "冷藏保存，3日內食用完畢"
+      ],
+      "slug": "100ways_S8_079_奶茶凍"
+    },
+    {
+      "id": 80,
+      "code": "#080",
+      "series": "S8",
+      "name": "免烤能量球",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 燕麥片 60g + 花生醬 40g 揉成球，冷藏 1 小時",
+      "hook": "一排球排整齊的收尾畫面",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [
+        "冷藏保存，3日內食用完畢"
+      ],
+      "slug": "100ways_S8_080_免烤能量球"
+    },
+    {
+      "id": 81,
+      "code": "#081",
+      "series": "S9",
+      "name": "熱可可",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包 + 60°C 水 30ml 調糊 + 熱水 270ml",
+      "hook": "調糊那一步的特寫",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [
+        "水溫勿超過80°C"
+      ],
+      "slug": "100ways_S9_081_熱可可"
+    },
+    {
+      "id": 82,
+      "code": "#082",
+      "series": "S9",
+      "name": "熱拿鐵",
+      "flavors": [
+        {
+          "key": "拿鐵",
+          "name": "拿鐵風味",
+          "sku_1": "VG00L1",
+          "sku_12": "VG00L2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包調糊 + 熱美式 250ml",
+      "hook": "辦公室微波爐旁",
+      "warnings": [],
+      "food_safety": [
+        "水溫勿超過80°C"
+      ],
+      "slug": "100ways_S9_082_熱拿鐵"
+    },
+    {
+      "id": 83,
+      "code": "#083",
+      "series": "S9",
+      "name": "熱穀物飲",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "1 包調糊 + 熱水 280ml",
+      "hook": "最像傳統穀物飲的一支",
+      "warnings": [],
+      "food_safety": [
+        "水溫勿超過80°C"
+      ],
+      "slug": "100ways_S9_083_熱穀物飲"
+    },
+    {
+      "id": 84,
+      "code": "#084",
+      "series": "S9",
+      "name": "熱抹茶",
+      "flavors": [
+        {
+          "key": "抹茶",
+          "name": "靜岡抹茶燕麥風味",
+          "sku_1": "VG00M1",
+          "sku_12": "VG00M2",
+          "protein_g": 23.0
+        }
+      ],
+      "method": "1 包調糊 + 70°C 水 280ml",
+      "hook": "溫度計入鏡，講清楚別煮沸",
+      "warnings": [],
+      "food_safety": [
+        "水溫勿超過80°C"
+      ],
+      "slug": "100ways_S9_084_熱抹茶"
+    },
+    {
+      "id": 85,
+      "code": "#085",
+      "series": "S9",
+      "name": "芝麻糊",
+      "flavors": [
+        {
+          "key": "芝麻",
+          "name": "黑芝麻牛奶風味",
+          "sku_1": "VG00S1",
+          "sku_12": "VG00S2",
+          "protein_g": 22.0
+        }
+      ],
+      "method": "1 包調糊 + 熱水 180ml（少水）",
+      "hook": "濃到像甜品店的芝麻糊",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [
+        "水溫勿超過80°C"
+      ],
+      "slug": "100ways_S9_085_芝麻糊"
+    },
+    {
+      "id": 86,
+      "code": "#086",
+      "series": "S9",
+      "name": "熱奶茶",
+      "flavors": [
+        {
+          "key": "紅茶",
+          "name": "植感奶霧紅茶",
+          "sku_1": "VG00T1",
+          "sku_12": "VG00T2",
+          "protein_g": 24.1
+        }
+      ],
+      "method": "1 包調糊 + 熱無糖紅茶 280ml",
+      "hook": "熱的也成立",
+      "warnings": [],
+      "food_safety": [
+        "水溫勿超過80°C"
+      ],
+      "slug": "100ways_S9_086_熱奶茶"
+    },
+    {
+      "id": 87,
+      "code": "#087",
+      "series": "S9",
+      "name": "薑味可可",
+      "flavors": [
+        {
+          "key": "可可",
+          "name": "植感醇黑可可",
+          "sku_1": "VG00C1",
+          "sku_12": "VG00C2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包調糊 + 熱水 270ml + 薑粉少許",
+      "hook": "薑粉撒下去",
+      "warnings": [
+        {
+          "kind": "Q10",
+          "text": "本產品含輔酵素Q10，十五歲以下孩童、懷孕或哺乳期間婦女，及服用抗凝血藥品之病患不宜食用。"
+        }
+      ],
+      "food_safety": [
+        "水溫勿超過80°C"
+      ],
+      "slug": "100ways_S9_087_薑味可可"
+    },
+    {
+      "id": 88,
+      "code": "#088",
+      "series": "S9",
+      "name": "肉桂拿鐵",
+      "flavors": [
+        {
+          "key": "拿鐵",
+          "name": "拿鐵風味",
+          "sku_1": "VG00L1",
+          "sku_12": "VG00L2",
+          "protein_g": 24.0
+        }
+      ],
+      "method": "1 包調糊 + 熱水 270ml + 肉桂粉少許",
+      "hook": "肉桂棒攪拌",
+      "warnings": [],
+      "food_safety": [
+        "水溫勿超過80°C"
+      ],
+      "slug": "100ways_S9_088_肉桂拿鐵"
+    },
+    {
+      "id": 89,
+      "code": "#089",
+      "series": "S9",
+      "name": "熱香蕉牛奶",
+      "flavors": [
+        {
+          "key": "香蕉",
+          "name": "香蕉牛奶風味",
+          "sku_1": "VG00B1",
+          "sku_12": "VG00B2",
+          "protein_g": 26.2
+        }
+      ],
+      "method": "1 包調糊 + 溫豆漿 280ml（不要煮滾）",
+      "hook": "睡前那杯的冬天版",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [
+        "水溫勿超過80°C"
+      ],
+      "slug": "100ways_S9_089_熱香蕉牛奶"
+    },
+    {
+      "id": 90,
+      "code": "#090",
+      "series": "S9",
+      "name": "保溫瓶帶著走",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "早上泡好裝保溫瓶，**2 小時內喝完**",
+      "hook": "食安提醒要明確講",
+      "warnings": [],
+      "food_safety": [
+        "水溫勿超過80°C",
+        "泡好後建議2小時內飲用完畢"
+      ],
+      "slug": "100ways_S9_090_保溫瓶帶著走"
+    },
+    {
+      "id": 91,
+      "code": "#091",
+      "series": "S10",
+      "name": "溫豆漿香蕉",
+      "flavors": [
+        {
+          "key": "香蕉",
+          "name": "香蕉牛奶風味",
+          "sku_1": "VG00B1",
+          "sku_12": "VG00B2",
+          "protein_g": 26.2
+        }
+      ],
+      "method": "1 包調糊 + 溫豆漿 280ml",
+      "hook": "關燈前的最後一杯",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S10_091_溫豆漿香蕉"
+    },
+    {
+      "id": 92,
+      "code": "#092",
+      "series": "S10",
+      "name": "濃芝麻",
+      "flavors": [
+        {
+          "key": "芝麻",
+          "name": "黑芝麻牛奶風味",
+          "sku_1": "VG00S1",
+          "sku_12": "VG00S2",
+          "protein_g": 22.0
+        }
+      ],
+      "method": "1 包調糊 + 溫水 200ml",
+      "hook": "少水版，濃到有飽足感",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S10_092_濃芝麻"
+    },
+    {
+      "id": 93,
+      "code": "#093",
+      "series": "S10",
+      "name": "溫穀物",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "1 包調糊 + 溫水 250ml",
+      "hook": "最單純的一支",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S10_093_溫穀物"
+    },
+    {
+      "id": 94,
+      "code": "#094",
+      "series": "S10",
+      "name": "香蕉配香蕉（睡前碗）",
+      "flavors": [
+        {
+          "key": "香蕉",
+          "name": "香蕉牛奶風味",
+          "sku_1": "VG00B1",
+          "sku_12": "VG00B2",
+          "protein_g": 26.2
+        }
+      ],
+      "method": "1 包 + 豆漿 150ml 拌稠 + 切片香蕉",
+      "hook": "用吃的收尾",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [
+        "當日飲用完畢"
+      ],
+      "slug": "100ways_S10_094_香蕉配香蕉（睡前碗）"
+    },
+    {
+      "id": 95,
+      "code": "#095",
+      "series": "S10",
+      "name": "燕麥奶芝麻",
+      "flavors": [
+        {
+          "key": "芝麻",
+          "name": "黑芝麻牛奶風味",
+          "sku_1": "VG00S1",
+          "sku_12": "VG00S2",
+          "protein_g": 22.0
+        }
+      ],
+      "method": "1 包 + 溫燕麥奶 280ml",
+      "hook": "兩種穀香疊起來",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S10_095_燕麥奶芝麻"
+    },
+    {
+      "id": 96,
+      "code": "#096",
+      "series": "S10",
+      "name": "花生醬穀物",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "1 包調糊 + 溫水 250ml + 無糖花生醬 1 小匙",
+      "hook": "花生醬融進去的漩渦",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S10_096_花生醬穀物"
+    },
+    {
+      "id": 97,
+      "code": "#097",
+      "series": "S10",
+      "name": "香蕉冰磚常溫水",
+      "flavors": [
+        {
+          "key": "香蕉",
+          "name": "香蕉牛奶風味",
+          "sku_1": "VG00B1",
+          "sku_12": "VG00B2",
+          "protein_g": 26.2
+        }
+      ],
+      "method": "前晚做的香蕉冰磚 + 常溫水 250ml",
+      "hook": "不想喝熱的時候",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S10_097_香蕉冰磚常溫水"
+    },
+    {
+      "id": 98,
+      "code": "#098",
+      "series": "S10",
+      "name": "椰奶芝麻",
+      "flavors": [
+        {
+          "key": "芝麻",
+          "name": "黑芝麻牛奶風味",
+          "sku_1": "VG00S1",
+          "sku_12": "VG00S2",
+          "protein_g": 22.0
+        }
+      ],
+      "method": "1 包 + 椰漿 60ml + 溫水 220ml",
+      "hook": "東南亞甜品感",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S10_098_椰奶芝麻"
+    },
+    {
+      "id": 99,
+      "code": "#099",
+      "series": "S10",
+      "name": "溫米漿穀物",
+      "flavors": [
+        {
+          "key": "穀物",
+          "name": "綜合穀物",
+          "sku_1": "VG00G1",
+          "sku_12": "VG00G2",
+          "protein_g": 24.6
+        }
+      ],
+      "method": "1 包調糊 + 溫米漿 250ml",
+      "hook": "最有記憶點的台味",
+      "warnings": [],
+      "food_safety": [],
+      "slug": "100ways_S10_099_溫米漿穀物"
+    },
+    {
+      "id": 100,
+      "code": "#100",
+      "series": "S10",
+      "name": "香蕉＋芝麻各半包",
+      "flavors": [
+        {
+          "key": "香蕉",
+          "name": "香蕉牛奶風味",
+          "sku_1": "VG00B1",
+          "sku_12": "VG00B2",
+          "protein_g": 26.2
+        },
+        {
+          "key": "芝麻",
+          "name": "黑芝麻牛奶風味",
+          "sku_1": "VG00S1",
+          "sku_12": "VG00S2",
+          "protein_g": 22.0
+        }
+      ],
+      "method": "各半包 + 溫豆漿 300ml",
+      "hook": "全系列最後一支，兩個晚安口味合體",
+      "warnings": [
+        {
+          "kind": "GABA",
+          "text": "本產品含有GABA，使用本產品應避免同時飲酒或服用降血壓、鎮靜及癲癇等藥物；孕婦、授乳者、嬰幼兒，須諮詢醫師方可使用。"
+        }
+      ],
+      "food_safety": [],
+      "slug": "100ways_S10_100_香蕉＋芝麻各半包"
+    }
+  ]
+}
