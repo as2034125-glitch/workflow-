@@ -99,6 +99,7 @@ python3 scripts/build.py           # 正式輸出 9:16 與 4:5
 | `docs/100-ways/03-廣告用字與警語.md` | 食安法用字檢查、Q10 與 GABA 法定警語、UGC 審核 |
 | `docs/100-ways/recipes.json` | 由清單產生的結構化資料，**不要手動編輯** |
 | `docs/100-ways/AGUGU_100種喝法_內部提案書.docx` | 給決策層看的提案書，同樣由腳本產生 |
+| `docs/100-ways/04-KOL合作企劃-4盒任選組.md` | KOL 一個月 Reels 合作企劃，推 4 盒任選組（NT$2,299） |
 
 配方的唯一來源是 `01-100種喝法清單.md`。改完配方跑：
 
